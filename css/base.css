@@ -14,21 +14,19 @@ body{
 }
 
 #logo{
-    max-width: 50%;
+    display: block;
+    margin: 0 auto;
 }
 
 /* #log_in is the link to sign in */
 #log_in{
-    float: left;
+    display: block;
+    text-align: center;
     padding: .5rem;
 }
 
 h1{
     font-family: 'Cairo', sans-serif;
-}
-
-nav{
-    margin: 2rem 0;
 }
 
 ul{

@@ -1,7 +1,6 @@
 <div>
     <a id="logo" href="#"><img src="images/site/logo.png" alt="PHP Motors logo" id="logo"></a>
     <a class="plain_link" id="log_in" href="#">My Account</a>
-    <br>
     <nav>
         <ul>
             <li><a class="plain_link" href="#" onclick="toggleMenu()">&#9776;</a></li>
