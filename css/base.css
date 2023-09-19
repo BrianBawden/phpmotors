@@ -1,0 +1,10 @@
+html{
+    background-image: url(../images/site/small_check.jpg);
+}
+
+body{
+    background-color: white;
+    border: .5rem solid lightblue;
+    max-width: 75%;
+    margin: 2rem auto;
+}
