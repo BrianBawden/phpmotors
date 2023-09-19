@@ -4,7 +4,8 @@ html{
 
 body{
     background-color: white;
-    border: .5rem solid lightblue;
+    border: .5rem solid #a6cbeb;
+    border-radius: 1rem;
     max-width: 75%;
     margin: 2rem auto;
 }
@@ -14,15 +15,31 @@ ul{
     background-color: #8d8d8d;
     color: white;
     display: block;
+    padding: unset;
 }
 
 li{
-    display: inline-block;
-    padding: 2rem;
+    /* display: inline-block; */
+    padding: 1rem .5rem;
+    text-align: center;
+}
+
+li:hover{
+    background-color: #4c96d7;
 }
 
 /* .plain_link class is for links that I want to control the apperance. */
 .plain_link{
     text-decoration: none;
     color: inherit;
+}
+
+/* #log_in is the link to sign in */
+#log_in{
+    float: right;
+    padding: .3rem;
+}
+
+hr{
+    border: solid .1rem #8d8d8d;
 }
