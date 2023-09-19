@@ -13,16 +13,23 @@ body{
     font-family: 'Comic Neue', cursive;
 }
 
+#logo{
+    max-width: 50%;
+}
+
 /* #log_in is the link to sign in */
 #log_in{
-    float: right;
-    padding: .3rem;
+    float: left;
+    padding: .5rem;
 }
 
 h1{
     font-family: 'Cairo', sans-serif;
 }
 
+nav{
+    margin: 2rem 0;
+}
 
 ul{
     list-style-type: none;
