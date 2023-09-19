@@ -1,0 +1,13 @@
+@media (min-width: 750px){
+    li{
+        display: inline-block;
+    }
+
+    body{
+        background-image: none;
+    }
+
+    nav ul li:first-child{
+        display: none;
+    }
+}
