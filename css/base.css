@@ -8,6 +8,11 @@ body{
     border-radius: 1rem;
     max-width: 75%;
     margin: 2rem auto;
+    font-family: 'Comic Neue', cursive;
+}
+
+h1{
+    font-family: 'Cairo', sans-serif;
 }
 
 ul{
@@ -42,4 +47,9 @@ li:hover{
 
 hr{
     border: solid .1rem #8d8d8d;
+}
+
+footer{
+    text-align: center;
+    font-size: .75rem;
 }
