@@ -4,7 +4,7 @@
     <nav>
         <ul>
             <li><a class="plain_link" href="#" onclick="toggleMenu()">&#9776;</a></li>
-            <li><a class="plain_link" href="#">Home</a></li>
+            <li><a class="plain_link" href="home.php">Home</a></li>
             <li><a class="plain_link" href="#">Classic</a></li>
             <li><a class="plain_link" href="#">Sports</a></li>
             <li><a class="plain_link" href="#">SUV</a></li>
