@@ -21,9 +21,29 @@
     </header>
     <main>
         <h1>Welcome to PHP Motors!</h1>
+        <div class="carInfo">
+            <table>
+                <tr>
+                    <th>DMC Delorean</th>
+                </tr>
+                <tr>
+                    <td>Three cup holders</td>
+                </tr>
+                <tr>
+                    <td>Superman Doors</td>
+                </tr>
+                <tr>
+                    <td>Fuzzy dice!</td>
+                </tr>
+            </table>
+            <button>Own Today</button>
+        </div>
+        <div class="carPic"><img src="images/delorean.jpg" alt="Cartoon of Delorean"></div>
+
+
     </main>
     <footer>
-        <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/backend1/phpmotors/php_files/footer.php';?>
+        <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/backend1/phpmotors/php_files/footer.php'; ?>
     </footer>
 
 </body>
