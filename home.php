@@ -38,8 +38,42 @@
             </table>
             <button>Own Today</button>
         </div>
-        <div class="carPic"><img src="images/delorean.jpg" alt="Cartoon of Delorean"></div>
-
+        <div class="carPic">
+            <img src="images/delorean.jpg" alt="Cartoon of Delorean">
+        </div>
+        <div class="upgrade">
+            <h2>Delorean Upgrades</h2>
+            <table class="upgrade_table">
+                <tr>
+                    <td>
+                        <figure>
+                            <img src="images/upgrades/flux-cap.png" alt="flux_capacitor">
+                            <figcaption>Flux Capacitor</figcaption>
+                        </figure>
+                    </td>
+                    <td>
+                        <figure>
+                            <img src="images/upgrades/flame.jpg" alt="Flame Decal">
+                            <figcaption>Flame decal</figcaption>
+                        </figure>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <figure>
+                            <img src="images/upgrades/bumper_sticker.jpg" alt="bumper sticker">
+                            <figcaption>Bumper sticker</figcaption>
+                        </figure>
+                    </td>
+                    <td>
+                        <figure>
+                            <img src="images/upgrades/hub-cap.jpg" alt="Hubcap">
+                            <figcaption>Hubcap</figcaption>
+                        </figure>
+                    </td>
+                </tr>
+            </table>
+        </div>
 
     </main>
     <footer>
