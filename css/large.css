@@ -3,6 +3,9 @@
     body{
         background-image: none;
     }
+    #logo{
+        display: unset;
+    }
 
     #log_in{
         float: right;
