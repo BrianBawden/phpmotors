@@ -74,6 +74,24 @@ h1{
     margin: unset;
 }
 
+.carPic{
+    display: flex;
+    flex-direction: column;
+}
+
+.carPic img{
+    max-width: 100%;
+}
+
+.carPic button{
+    max-width: 70%;
+    margin: 1rem auto;
+    padding: 1.5rem 1rem;
+    background: #a6cbeb;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
 hr{
     border: solid .1rem #8d8d8d;
 }
