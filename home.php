@@ -24,7 +24,9 @@
         <div class="carInfo">
             <table>
                 <tr>
-                    <td><h2>DMC Delorean</h2></td>
+                    <td>
+                        <h2>DMC Delorean</h2>
+                    </td>
                 </tr>
                 <tr>
                     <td>Three cup holders</td>
@@ -54,32 +56,34 @@
         </div>
         <div class="upgrade">
             <h2>Delorean Upgrades</h2>
-            <div class="upgrade_options">
-                <figure>
-                    <img src="images/upgrades/flux-cap.png" alt="flux_capacitor">
-                    <figcaption>Flux Capacitor</figcaption>
-                </figure>
-            </div>
-            <div class="upgrade_options">
-                <figure>
-                    <img src="images/upgrades/flame.jpg" alt="Flame Decal">
-                    <figcaption>Flame decal</figcaption>
-                </figure>
-            </div>
-            <div class="upgrade_options">
-                <figure>
-                    <img src="images/upgrades/bumper_sticker.jpg" alt="bumper sticker">
-                    <figcaption>Bumper sticker</figcaption>
-                </figure>
-            </div>
-            <div class="upgrade_options">
-                <figure>
-                    <img src="images/upgrades/hub-cap.jpg" alt="Hubcap">
-                    <figcaption>Hubcap</figcaption>
-                </figure>
+            <div class="upgrade_table">
+                <div class="upgrade_options">
+                    <figure>
+                        <img src="images/upgrades/flux-cap.png" alt="flux_capacitor">
+                        <figcaption>Flux Capacitor</figcaption>
+                    </figure>
+                </div>
+                <div class="upgrade_options">
+                    <figure>
+                        <img src="images/upgrades/flame.jpg" alt="Flame Decal">
+                        <figcaption>Flame decal</figcaption>
+                    </figure>
+                </div>
+                <div class="upgrade_options">
+                    <figure>
+                        <img src="images/upgrades/bumper_sticker.jpg" alt="bumper sticker">
+                        <figcaption>Bumper sticker</figcaption>
+                    </figure>
+                </div>
+                <div class="upgrade_options">
+                    <figure>
+                        <img src="images/upgrades/hub-cap.jpg" alt="Hubcap">
+                        <figcaption>Hubcap</figcaption>
+                    </figure>
+                </div>
             </div>
         </div>
-        
+
 
     </main>
     <footer>

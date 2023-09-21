@@ -40,18 +40,9 @@ nav ul{
 nav li{
     font-size: .8rem;
     padding: .4rem .2rem;
-
     display: inline-block;
     text-align: center;
-
-
 }
-
-/* li{
-    display: inline-block;
-    padding: 1rem .5rem;
-    text-align: center;
-} */
 
 li:hover{
     background-color: #4c96d7;
@@ -101,8 +92,16 @@ h1{
     margin: 1rem;
 }
 
-.upgrade_table td{
+.upgrade_options{
     background-color: #a6cbeb;
+}
+
+.upgrade_table{
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    gap: .5rem;
+    margin: 1rem;
 }
 
 hr{
