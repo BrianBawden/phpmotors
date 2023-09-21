@@ -1,21 +1,16 @@
 @media screen and (min-width: 750px){
 
+    html{
+        background: red;
+        background-image: url(../images/site/small_check.jpg);
+    }
+
     body{
-        background-image: none;
-    }
-    #logo{
-        display: unset;
-    }
-
-    #log_in{
-        float: right;
-    }
-
-    nav ul li:first-child{
-        display: none;
-    }
-
-    li{
-        display: inline-block;
-    }
+        background-color: white;
+        border: .5rem solid #a6cbeb;
+        border-radius: 1rem;
+        max-width: 75%;
+        margin: 2rem auto;
+        font-family: 'Comic Neue', cursive;
+    } 
 }
