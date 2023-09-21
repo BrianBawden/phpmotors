@@ -1,4 +1,4 @@
-
+/* 
 
 html{
     background-image: url(../images/site/small_check.jpg);
@@ -11,14 +11,13 @@ body{
     max-width: 75%;
     margin: 2rem auto;
     font-family: 'Comic Neue', cursive;
-}
+} */
 
 /* HEADER CSS */
 
 #logo img{
     max-width: 50%;
     float: left;
-    margin: 0.5rem;
 }
 
 /* #log_in is the link to sign in */
@@ -92,16 +91,17 @@ h1{
     margin: 1rem;
 }
 
-.upgrade_options{
-    background-color: #a6cbeb;
-}
-
 .upgrade_table{
     display: grid;
     grid-template-rows: repeat(2, 1fr);
     grid-template-columns: repeat(2, 1fr);
     gap: .5rem;
     margin: 1rem;
+}
+
+.upgrade_options{
+    background-color: #a6cbeb;
+    max-width: 100%;
 }
 
 hr{
