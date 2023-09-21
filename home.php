@@ -24,7 +24,7 @@
         <div class="carInfo">
             <table>
                 <tr>
-                    <th>DMC Delorean</th>
+                    <td><h2>DMC Delorean</h2></td>
                 </tr>
                 <tr>
                     <td>Three cup holders</td>
