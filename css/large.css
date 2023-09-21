@@ -12,6 +12,10 @@
         margin: 2rem auto;
         font-family: 'Comic Neue', cursive;
     } 
+    #log_in{
+        text-align: right;
+    }
+
     .rAndU{
         display: flex;
         flex-direction: row-reverse;
