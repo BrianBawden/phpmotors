@@ -36,10 +36,10 @@
                     <td>Fuzzy dice!</td>
                 </tr>
             </table>
-            <button>Own Today</button>
         </div>
         <div class="carPic">
             <img src="images/delorean.jpg" alt="Cartoon of Delorean">
+            <button>Own Today</button>
         </div>
         <div class="upgrade">
             <h2>Delorean Upgrades</h2>
