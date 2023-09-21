@@ -13,9 +13,12 @@ body{
     font-family: 'Comic Neue', cursive;
 }
 
-#logo{
-    display: block;
-    margin: 0 auto;
+/* HEADER CSS */
+
+#logo img{
+    max-width: 50%;
+    float: left;
+    margin: 0.5rem;
 }
 
 /* #log_in is the link to sign in */
@@ -25,20 +28,22 @@ body{
     padding: .5rem;
 }
 
-h1{
-    font-family: 'Cairo', sans-serif;
-}
-
 nav ul{
     list-style-type: none;
     background-color: #8d8d8d;
     color: white;
     display: block;
     padding: unset;
+    margin-top: 3rem;
+}
+
+nav li{
+    font-size: .8rem;
+    padding: .4rem .2rem;
 }
 
 li{
-    /* display: inline-block; */
+    display: inline-block;
     padding: 1rem .5rem;
     text-align: center;
 }
@@ -51,6 +56,22 @@ li:hover{
 .plain_link{
     text-decoration: none;
     color: inherit;
+}
+
+/* MAIN CSS */
+
+h1{
+    font-family: 'Cairo', sans-serif;
+    font-size: 1.5rem;
+    margin-top: -.4rem;
+}
+
+.carInfo table{
+    color: #4c96d7;
+}
+
+.carInfo h2{
+    margin: unset;
 }
 
 hr{
