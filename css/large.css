@@ -1,7 +1,6 @@
 @media screen and (min-width: 750px){
 
     html{
-        background: red;
         background-image: url(../images/site/small_check.jpg);
     }
 
@@ -13,4 +12,19 @@
         margin: 2rem auto;
         font-family: 'Comic Neue', cursive;
     } 
+    .rAndU{
+        display: flex;
+        flex-direction: row-reverse;
+    }
+
+    .carPic{
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: start
+    }
+
+    .carPic button{
+        margin: 1rem;
+        padding: .5rem 1rem;
+    }
 }
