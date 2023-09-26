@@ -1,5 +1,5 @@
 <div>
-    <a id="logo" href="#"><img src="images/site/logo.png" alt="PHP Motors logo"></a>
+    <a id="logo" href="#"><img src="http://localhost/backend1/phpmotors/images/site/logo.png" alt="PHP Motors logo"></a>
     <a class="plain_link" id="log_in" href="#">My Account</a>
     <nav>
         <ul>
