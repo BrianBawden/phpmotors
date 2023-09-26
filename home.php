@@ -34,7 +34,7 @@
             <button>Own Today</button>
         </div>
         <div class="rAndU">
-            <div class="reviews">
+            <div class="reviews rAndUChild">
                 <h2>DMC Delorean Reviews</h2>
                 <ul>
                     <li>"So fast it is almost like traveling in time." (4/5)</li>
@@ -45,7 +45,7 @@
 
                 </ul>
             </div>
-            <div class="upgrade">
+            <div class="upgrade rAndUChild">
                 <h2>Delorean Upgrades</h2>
                 <div class="upgrade_table">
                     <div class="upgrade_options">

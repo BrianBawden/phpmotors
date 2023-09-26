@@ -10,13 +10,13 @@
 /* #log_in is the link to sign in */
 #log_in{
     display: block;
-    text-align: center;
+    text-align: right;
     padding: .5rem;
 }
 
 nav ul{
     list-style-type: none;
-    background-color: #8d8d8d;
+    background-color: #555454;
     color: white;
     display: block;
     padding: unset;
@@ -49,7 +49,7 @@ h1{
 }
 
 .carInfo table{
-    color: #4c96d7;
+    color: #3577b1;
 }
 
 .carInfo h2{
