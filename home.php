@@ -2,12 +2,12 @@
 <html lang="en">
 
 <head>
-    <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/backend1/phpmotors/php_files/head.php'; ?>
+    <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/php_files/head.php'; ?>
 </head>
 
 <body>
     <header>
-        <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/backend1/phpmotors/php_files/header.php'; ?>
+        <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/php_files/header.php'; ?>
     </header>
     <main>
         <h1>Welcome to PHP Motors!</h1>
@@ -77,7 +77,7 @@
         </div>
     </main>
     <footer>
-        <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/backend1/phpmotors/php_files/footer.php'; ?>
+        <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/php_files/footer.php'; ?>
     </footer>
 
 </body>

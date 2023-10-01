@@ -14,12 +14,12 @@ function phpmotorsConnect(){
 
     try{
         $link = new PDO($dsn, $username, $password, $options);
-        return $link;
-        // if(is_object($link)){echo 'It worked!';}
+        // return $link;
+        if(is_object($link)){echo 'It worked!';}
     }
     catch(PDOException $e) {
-        header('Location: http://localhost/backend1/phpmotors/view/500.php');
-        // echo "It didn't work, error: " . $e->getMessage();
+        // header('Location: http://localhost/phpmotors/view/500.php');
+        echo "It didn't work, error: " . $e->getMessage();
     }
 } 
 
