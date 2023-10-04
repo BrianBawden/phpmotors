@@ -24,6 +24,18 @@ $classifications = getClassifications();
 // var_dump($classifications);
 // 	exit;
 
+// Build a navigation bar using the $classifications array
+$navList = '<ul>';
+$navList .= "<li><a href='/phpmotors/index.php' title='View the PHP Motors home page'>Home</a></li>";
+foreach ($classifications as $classification) {
+ $navList .= "<li><a href='/phpmotors/index.php?action=".urlencode($classification['classificationName'])."' title='View our $classification[classificationName] product line'>$classification[classificationName]</a></li>";
+}
+$navList .= '</ul>';
+
+// The commented out code below is to test the nav bar code. 
+
+// echo $navList;
+// exit;
 
 // switch statement reading the $action value to know what view to show, with a default of view/home.php
  switch ($action){
