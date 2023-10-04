@@ -1,5 +1,8 @@
 
+body{
+    font-family: 'Comic Neue', cursive;
 
+}
 /* HEADER CSS */
 
 #logo img{
@@ -28,10 +31,19 @@ nav li{
     padding: .4rem .2rem;
     display: inline-block;
     text-align: center;
+    text-decoration: none;
 }
 
 li:hover{
     background-color: #4c96d7;
+}
+
+a:visited{
+    color: inherit;
+}
+
+a {
+    text-decoration: inherit;
 }
 
 /* .plain_link class is for links that I want to control the apperance. */

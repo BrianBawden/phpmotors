@@ -10,12 +10,17 @@
         border-radius: 1rem;
         max-width: 75%;
         margin: 2rem auto;
-        font-family: 'Comic Neue', cursive;
     } 
     #log_in{
         text-align: right;
     }
 
+    a {
+        font-size: 1.3rem;
+        padding-right: 1rem;
+    }
+
+    /* rAndU is for the reviews and upgrades section of the page */
     .rAndU{
         display: flex;
         flex-direction: row-reverse;
