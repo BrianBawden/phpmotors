@@ -16,8 +16,8 @@
     </header>
     <main>
         <h1>Register</h1>
-        <form action="">
-            <label for="fname"><span class="required">*</span><strong>First Name:</strong></label><br>
+        <form action="run">
+            <label for="fName"><span class="required">*</span><strong>First Name:</strong></label><br>
             <input type="text" id="fName" name="fName" required><br>
 
             <label for="lname"><span class="required">*</span><strong>Last Name:</strong></label><br>
