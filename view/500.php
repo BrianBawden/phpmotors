@@ -3,6 +3,7 @@
 
 <head>
     <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/php_files/head.php'; ?>
+    <title>500 Error Page</title>
 </head>
 
 <body>

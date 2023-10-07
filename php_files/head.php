@@ -8,4 +8,3 @@
 <!-- <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300&display=swap" rel="stylesheet"> -->
 <!-- links for google font Comic Neue -->
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@500&family=Comic+Neue:ital,wght@1,700&display=swap" rel="stylesheet">
-<title>PHP Motors</title>

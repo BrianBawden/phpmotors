@@ -19,7 +19,7 @@ body{
 
 nav ul{
     list-style-type: none;
-    background-color: #0d0d0d;
+    background-color: #363333;
     color: #FFFFFF;
     display: block;
     padding: unset;
@@ -39,7 +39,7 @@ li:hover{
     background-color: #4c96d7;
 }
 
-a:visited{
+nav a:visited{
     color: inherit;
 }
 
@@ -50,7 +50,7 @@ a {
 /* .plain_link class is for links that I want to control the apperance. */
 .plain_link{
     text-decoration: none;
-    color: inherit;
+    color:#3577b1;
 }
 
 /* MAIN CSS */
