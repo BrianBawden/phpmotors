@@ -15,16 +15,23 @@
         </div>
     </header>
     <main>
-        <h1>Sign In</h1>
+        <h1>Register</h1>
         <form action="">
+            <label for="fname"><span class="required">*</span><strong>First Name:</strong></label><br>
+            <input type="text" id="fName" name="fName" required><br>
+
+            <label for="lname"><span class="required">*</span><strong>Last Name:</strong></label><br>
+            <input type="text" id="lname" name="lname" required><br>
+
             <label for="email"><span class="required">*</span><strong>Email:</strong></label><br>
             <input type="email" id="email" name="email" required><br>
 
             <label for="password"><span class="required">*</span><strong>Password:</strong></label><br>
             <input type="password" id="password" name="password" required><br>
-            <button>Sign In</button>
+            <p>Password must be at least 8 characters and include: one capital case, one lower case, and one number.</p>
+            <button>Register</button>
         </form>
-        <p>Not a member? <a href="/phpmotors/index.php?action=register">Sign up</a></p>
+        <p>Not a member? <a href="#">Sign up</a></p>
     </main>
     <footer>
         <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/php_files/footer.php'; ?>

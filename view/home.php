@@ -7,13 +7,12 @@
 
 <body>
     <header>
-    <div>
-    <a id="logo" href="#"><img src="/phpmotors/images/site/logo.png" alt="PHP Motors logo"></a>
-    <a class="plain_link" id="log_in" href="#">My Account</a>
-    <nav>
-        <?php echo $navList; ?>
-    </nav>
-</div>
+        <div>
+            <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/php_files/header.php'; ?>
+            <nav>
+                <?php echo $navList; ?>
+            </nav>
+        </div>
     </header>
     <main>
         <h1>Welcome to PHP Motors!</h1>
