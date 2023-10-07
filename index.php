@@ -42,6 +42,11 @@ $navList .= '</ul>';
     include 'view/template.php';
   
   break;
+
+ case 'sign_in':
+    include 'view/sign_in.php';
+
+  break;
  
  default:
   include 'view/home.php';
