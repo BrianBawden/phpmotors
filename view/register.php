@@ -17,6 +17,14 @@
     </header>
     <main>
         <h1>Register</h1>
+
+        <?php
+
+        if (isset($message)) {
+            echo $message;
+        }
+
+        ?>
         <form action="/phpmotors/accounts/index.php" method="post">
             <label for="fName"><span class="required">*</span><strong>First Name:</strong></label><br>
             <input type="text" id="fName" name="clientFirstname" required><br>
