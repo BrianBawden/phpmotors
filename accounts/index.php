@@ -12,6 +12,8 @@ $action = filter_input(INPUT_POST, 'action');
 require_once '../library/connections.php';
 // Get the PHP Motors model for use as needed
 require_once '../model/main-model.php';// Get the database connection file
+// Get the accounts model
+require_once '../model/accounts-model.php';
 
 
 // Get the array of classifications from the database.

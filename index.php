@@ -1,7 +1,7 @@
 <?php
 // This is the main controller for phpmotors website.
 
-// set $action to the filered input post/get for security reasons.
+// set $action to the filtered input post/get for security reasons.
 $action = filter_input(INPUT_POST, 'action');
  if ($action == NULL){
   $action = filter_input(INPUT_GET, 'action');
