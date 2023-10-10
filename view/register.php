@@ -17,31 +17,33 @@
     </header>
     <main>
         <h1>Register</h1>
-
-        <?php
-
-        if (isset($message)) {
-            echo $message;
-        }
-
-        ?>
+        <div id="missing"></div>
+        <p id="missingTag">
+            <?php
+            if (isset($message)) {
+                echo $message;
+            }
+            ?>
+        </p>
         <form action="/phpmotors/accounts/index.php" method="post">
             <label for="fName"><span class="required">*</span><strong>First Name:</strong></label><br>
-            <input type="text" id="fName" name="clientFirstname" required><br>
+            <input type="text" id="fName" name="clientFirstname"><br>
 
             <label for="lname"><span class="required">*</span><strong>Last Name:</strong></label><br>
-            <input type="text" id="lname" name="clientLastname" required><br>
+            <input type="text" id="lname" name="clientLastname"><br>
 
             <label for="email"><span class="required">*</span><strong>Email:</strong></label><br>
-            <input type="email" id="email" name="clientEmail" required><br>
+            <input type="email" id="email" name="clientEmail"><br>
 
             <label for="password"><span class="required">*</span><strong>Password:</strong></label><br>
-            <input type="password" id="password" name="clientPassword" required><br>
+            <input type="password" id="password" name="clientPassword"><br>
             <p>Password must be at least 8 characters and include: one capital case, one lower case, and one number.</p>
-            <input type="submit" name="submit" id="regbtn" value="Register">
+            
+            <input type="submit" name="submit" id="regbtn" value="register">
             <!-- Add the action name - value pair -->
-            <input type="hidden" name="action" value="register">
+            <input type="hidden" name="action" value="registered">
         </form>
+        
         <p>Not a member? <a class="plain_link" href="#">Sign up</a></p>
 
     </main>

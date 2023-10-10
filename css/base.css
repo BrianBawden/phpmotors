@@ -69,6 +69,12 @@ h1{
     margin-top: -.4rem;
 }
 
+/* styling for message informing user that required information is missing. */
+#missingTag{
+    color: red;
+    font-size: large;
+}
+
 .carInfo table{
     color: #3577b1;
 }

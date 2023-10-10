@@ -47,6 +47,11 @@ $navList .= '</ul>';
   case 'register':
     include '../view/register.php';
     break;
+
+  case 'registered':
+    $message = "Missing Info.";
+    include '../view/register.php';
+    break;
  
  default:
     // include 'view/home.php';
