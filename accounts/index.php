@@ -12,6 +12,8 @@ $action = filter_input(INPUT_POST, 'action');
 require_once '../library/connections.php';
 // Get the PHP Motors model for use as needed
 require_once '../model/main-model.php';// Get the database connection file
+// Get the accounts model
+require_once '../model/accounts-model.php';
 
 
 // Get the array of classifications from the database.
@@ -38,13 +40,16 @@ $navList .= '</ul>';
 // switch statement reading the $action value to know what view to show, with a default of view/home.php
  switch ($action){
 
- case '':
-  
-  break;
+  case 'sign_in':
+    include 'view/sign_in.php';
+    break;
+
+  case 'register':
+    include 'view/register.php';
+    break;
  
  default:
-
- break;
+    include 'view/home.php';
 }
 
 
