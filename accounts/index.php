@@ -41,15 +41,15 @@ $navList .= '</ul>';
  switch ($action){
 
   case 'sign_in':
-    include 'view/sign_in.php';
+    include '../view/sign_in.php';
     break;
 
   case 'register':
-    include 'view/register.php';
+    include '../view/register.php';
     break;
  
  default:
-    include 'view/home.php';
+    // include 'view/home.php';
 }
 
 

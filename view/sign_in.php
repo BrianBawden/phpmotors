@@ -25,7 +25,7 @@
             <input type="password" id="password" name="password"><br>
             <button>Sign In</button>
         </form>
-        <p>Not a member? <a class="plain_link" href="/phpmotors/index.php?action=register">Sign up</a></p>
+        <p>Not a member? <a class="plain_link" href="/phpmotors/accounts/index.php?action=register">Sign up</a></p>
     </main>
     <footer>
         <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/php_files/footer.php'; ?>
