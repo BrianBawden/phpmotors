@@ -70,8 +70,13 @@ h1{
 }
 
 /* styling for message informing user that required information is missing. */
-#missingTag{
+#missingMsg{
     color: red;
+    font-size: large;
+}
+/* styling for successful registration. */
+#successMsg{
+    color:#3577b1;
     font-size: large;
 }
 

@@ -18,7 +18,7 @@
     <main>
         <h1>Register</h1>
         <div id="missing"></div>
-        <p id="missingTag">
+        <p id="missingMsg">
             <?php
             if (isset($message)) {
                 echo $message;

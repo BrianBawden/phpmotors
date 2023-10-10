@@ -17,6 +17,13 @@
     </header>
     <main>
         <h1>Sign In</h1>
+        <p id="successMsg">
+            <?php
+            if (isset($message)) {
+                echo $message;
+            }
+            ?>
+        </p>
         <form>
             <label for="email"><span class="required">*</span><strong>Email:</strong></label><br>
             <input type="email" id="email" name="email"><br>
