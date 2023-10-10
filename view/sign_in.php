@@ -19,13 +19,13 @@
         <h1>Sign In</h1>
         <form>
             <label for="email"><span class="required">*</span><strong>Email:</strong></label><br>
-            <input type="email" id="email" name="email" required><br>
+            <input type="email" id="email" name="email"><br>
 
             <label for="password"><span class="required">*</span><strong>Password:</strong></label><br>
-            <input type="password" id="password" name="password" required><br>
+            <input type="password" id="password" name="password"><br>
             <button>Sign In</button>
         </form>
-        <p>Not a member? <a class="plain_link" href="/phpmotors/index.php?action=register">Sign up</a></p>
+        <p>Not a member? <a class="plain_link" href="/phpmotors/accounts/index.php?action=register">Sign up</a></p>
     </main>
     <footer>
         <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/php_files/footer.php'; ?>

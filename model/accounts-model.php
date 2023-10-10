@@ -1,12 +1,11 @@
+
 <?php
 
 /*
  Accounts Model
 */
 
-
-
-// Register new client
+//the regClient function handles site registration.
 
 function regClient($clientFirstname, $clientLastname, $clientEmail, $clientPassword){
     // Create a connection object using the phpmotors connection function
@@ -32,6 +31,5 @@ function regClient($clientFirstname, $clientLastname, $clientEmail, $clientPassw
     // Return the indication of success (rows changed)
     return $rowsChanged;
    }
-
 
 ?>

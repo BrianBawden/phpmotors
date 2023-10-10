@@ -35,6 +35,10 @@ nav li{
     text-decoration: none;
 }
 
+nav ul li a{
+    color: #FFFFFF;
+}
+
 li:hover{
     background-color: #4c96d7;
 }

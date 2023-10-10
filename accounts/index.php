@@ -40,13 +40,16 @@ $navList .= '</ul>';
 // switch statement reading the $action value to know what view to show, with a default of view/home.php
  switch ($action){
 
- case '':
-  
-  break;
+  case 'sign_in':
+    include '../view/sign_in.php';
+    break;
+
+  case 'register':
+    include '../view/register.php';
+    break;
  
  default:
-
- break;
+    // include 'view/home.php';
 }
 
 
