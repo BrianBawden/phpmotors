@@ -25,16 +25,16 @@
         ?>
         <form method="post" action="/phpmotors/accounts/index.php">
             <label for="fName"><span class="required">*</span><strong>First Name:</strong></label><br>
-            <input type="text" id="fName" name="fName" required><br>
+            <input type="text" id="fName" name="fName"><br>
 
             <label for="lname"><span class="required">*</span><strong>Last Name:</strong></label><br>
-            <input type="text" id="lname" name="lname" required><br>
+            <input type="text" id="lname" name="lname"><br>
 
             <label for="email"><span class="required">*</span><strong>Email:</strong></label><br>
-            <input type="email" id="email" name="email" required><br>
+            <input type="email" id="email" name="email"><br>
 
             <label for="password"><span class="required">*</span><strong>Password:</strong></label><br>
-            <input type="password" id="password" name="password" required><br>
+            <input type="password" id="password" name="password"><br>
             <p>Password must be at least 8 characters and include: one capital case, one lower case, and one number.</p>
             <input type="submit" name="submit" id="regbtn" value="Register">
             <!-- Add the action name - value pair -->
