@@ -49,12 +49,37 @@ $navList .= '</ul>';
     break;
 
   case 'registered':
-    $message = "Missing Info.";
-    include '../view/register.php';
-    break;
+
+    // Filter and store the data
+    $clientFirstname = filter_input(INPUT_POST, 'clientFirstname');
+    $clientLastname = filter_input(INPUT_POST, 'clientLastname');
+    $clientEmail = filter_input(INPUT_POST, 'clientEmail');
+    $clientPassword = filter_input(INPUT_POST, 'clientPassword');
+
+
+    // Check for missing data
+    if(empty($clientFirstname) || empty($clientLastname) || empty($clientEmail) || empty($clientPassword)){
+      $message = 'Please provide information for all empty form fields.';
+      include '../view/register.php';
+      exit; 
+    }
+
+    // Send the data to the model
+    $regOutcome = regClient($clientFirstname, $clientLastname, $clientEmail, $clientPassword);
+
+    // Check and report the result
+    if($regOutcome === 1){
+      $message = "Thanks for registering <strong>$clientFirstname<?strong>. Please use your email and password to login.";
+      include '../view/sign_in.php';
+      exit;
+    } else {
+      $message = "<p>Sorry $clientFirstname, but the registration failed. Please try again.</p>";
+      include '../view/register.php';
+      exit;
+    }
  
  default:
-    // include 'view/home.php';
+    include 'view/home.php';
 }
 
 
