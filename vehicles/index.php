@@ -33,16 +33,16 @@ $navList .= '</ul>';
 // exit;
 
 // build dynamic classification select list with $classifications.
-$selectCarClass = '<label for="carClass">Choose car class:</label>';
-$selectCarClass .= "<select id='carClass' name='carClass'>";
+$classificationList = '<label for="carClass">Choose car class:</label>';
+$classificationList .= "<select id='carClass' name='carClass'>";
 foreach ($classifications as $classification) {
-  $selectCarClass .= "<option value='$classification[classificationName]'>$classification[classificationName]</option>";
+  $classificationList .= "<option value='$classification[classificationId]'>$classification[classificationName]</option>";
 }
-$selectCarClass .= '</select>';
+$classificationList .= '</select>';
 
-// test $selectCarClass: passed
-// echo $selectCarClass;
-// exit;
+// test $classificationList: passed
+echo $classificationList;
+exit;
 
 // switch for 'action' value default home.php.
 switch($action){
@@ -53,12 +53,15 @@ switch($action){
   case 'sign_in':
     include '../view/sign_in.php';
     break;
+
   case 'add-vehicle':
     include '../view/add-vehicle.php';
     break;
+
   case 'add-classification':
     include '../view/add-classification.php';
     break;
+
   default:
     include '../view/home.php';
 }
