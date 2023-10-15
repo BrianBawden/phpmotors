@@ -32,7 +32,36 @@ $navList .= '</ul>';
 // echo $navList;
 // exit;
 
+// build dynamic classification select list with $classifications.
+$selectCarClass = '<label for="carClass">Choose car class:</label>';
+$selectCarClass .= "<select id='carClass' name='carClass'>";
+foreach ($classifications as $classification) {
+  $selectCarClass .= "<option value='$classification[classificationName]'>$classification[classificationName]</option>";
+}
+$selectCarClass .= '</select>';
 
+// test $selectCarClass: passed
+// echo $selectCarClass;
+// exit;
+
+// switch for 'action' value default home.php.
+switch($action){
+  case 'register':
+    include '../view/register.php';
+    break;
+
+  case 'sign_in':
+    include '../view/sign_in.php';
+    break;
+  case 'add-vehicle':
+    include '../view/add-vehicle.php';
+    break;
+  case 'add-classification':
+    include '../view/add-classification.php';
+    break;
+  default:
+    include '../view/home.php';
+}
 
 
 
