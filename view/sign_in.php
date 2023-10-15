@@ -2,14 +2,14 @@
 <html lang="en">
 
 <head>
-    <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/php_files/head.php'; ?>
+    <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/common/head.php'; ?>
     <title>PHP Motors Sign In</title>
 </head>
 
 <body>
     <header>
         <div>
-            <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/php_files/header.php'; ?>
+            <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/common/header.php'; ?>
             <nav>
                 <?php echo $navList; ?>
             </nav>
@@ -35,7 +35,7 @@
         <p>Not a member? <a class="plain_link" href="/phpmotors/accounts/index.php?action=register">Sign up</a></p>
     </main>
     <footer>
-        <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/php_files/footer.php'; ?>
+        <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/common/footer.php'; ?>
     </footer>
 
 </body>
