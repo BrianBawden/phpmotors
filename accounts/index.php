@@ -20,7 +20,6 @@ require_once '../model/accounts-model.php';
 $classifications = getClassifications();
 
 // The commented out code below is to test the connection to the database.
-
 // var_dump($classifications);
 // 	exit;
 
