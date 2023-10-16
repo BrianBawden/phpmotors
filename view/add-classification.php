@@ -19,6 +19,18 @@
     </header>
     <main>
         <h1>Add Classification</h1>
+        <?php
+            if (isset($message)) {
+                echo $message;
+            }
+        ?>
+        <form action="">
+            <label for="newClassification">New Classification</label>
+            <input type="text" id="newClassification" name="newClassification">
+            <input type="submit" name="submit" id=submitBtn>
+            
+            <input type="hidden" name="action" value="newClass">
+        </form>
     </main>
     <footer>
         <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/common/footer.php'; ?>
