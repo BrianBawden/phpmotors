@@ -3,11 +3,13 @@
 
 
 function insertNewClassification($classificationName){
+   
     // object connected to phpmotors database using connection function.
     $db = phpmotorsConnect();
 
     // SQL statement to insert new classification.
-    $sql = 'INSERT INTO carclassification(classificationName) VALUES (:classificationName)';
+    $sql = 'INSERT INTO carclassification(classificationName) 
+    VALUES (:classificationName)';
 
     // prepare statement 
     $stmt = $db->prepare($sql);
