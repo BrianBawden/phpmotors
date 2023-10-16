@@ -62,6 +62,28 @@ switch($action){
     include '../view/add-classification.php';
     break;
 
+  case 'newClass':
+    
+    // filter and store data
+    $classificationName = filter_input(INPUT_POST, 'classificationName');
+
+    // check for missing data
+    if(empty($classificationName)){
+      $message = 'Please provide information for all empty form fields.';
+      include '../view/add-classification.php';
+      exit;
+    }
+
+    // send data to vehicles-model
+    $newClass = insertNewClassification($classificationName);
+
+    if($newClass !== 1){
+      $message = "<p>Sorry $clientFirstname, but the registration failed. Please try again.</p>";
+      include '../view/vehicle-manage.php';
+      exit;
+    }
+    break;
+
   default:
     include '../view/vehicle-manage.php';
 }
