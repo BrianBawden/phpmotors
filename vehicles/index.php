@@ -41,8 +41,8 @@ foreach ($classifications as $classification) {
 $classificationList .= '</select>';
 
 // test $classificationList: passed
-echo $classificationList;
-exit;
+// echo $classificationList;
+// exit;
 
 // switch for 'action' value default home.php.
 switch($action){
@@ -63,7 +63,7 @@ switch($action){
     break;
 
   default:
-    include '../view/home.php';
+    include '../view/vehicle-manage.php';
 }
 
 
