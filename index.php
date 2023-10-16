@@ -53,6 +53,10 @@ $navList .= '</ul>';
   case 'test':
     include 'view/500.php';
   break;
+
+  case 'vehicle-manage':
+    include 'view/vehicle-manage.php';
+  break;
  
  default:
   include 'view/home.php';
