@@ -34,7 +34,7 @@ $navList .= '</ul>';
 
 // build dynamic classification select list with $classifications.
 $classificationList = '<label for="carClass">*<strong>Choose car class:</strong></label><br>';
-$classificationList .= "<select id='carClass' name='carClass'>";
+$classificationList .= "<select id='carClass' name='classificationId'>";
 foreach ($classifications as $classification) {
   $classificationList .= "<option value='$classification[classificationId]'>$classification[classificationName]</option>";
 }
@@ -78,7 +78,6 @@ switch($action){
     $newClass = insertNewClassification($classificationName);
 
     if($newClass === 1){
-      // include '../view/vehicle-manage.php';
       header("Location: ../vehicles");
       // exit;
     } else {
@@ -90,6 +89,60 @@ switch($action){
 
   default:
     include '../view/vehicle-manage.php';
+
+  case 'newVehicle':
+
+    // filter and store data
+    $invMake          = filter_input(INPUT_POST, 'invMake');
+    $invModel         = filter_input(INPUT_POST, 'invModel');
+    $invDescription   = filter_input(INPUT_POST, 'invDescription');
+    $invImage         = filter_input(INPUT_POST, 'invImage');
+    $invThumbnail     = filter_input(INPUT_POST, 'invThumbnail');
+    $invPrice         = filter_input(INPUT_POST, 'invPrice');
+    $invStock         = filter_input(INPUT_POST, 'invStock');
+    $invColor         = filter_input(INPUT_POST, 'invColor');
+    $classificationId = filter_input(INPUT_POST, 'carClass');
+
+
+    // check for missing data
+    if(
+      empty($invMake)        || 
+      empty($invModel)       || 
+      empty($invDescription) || 
+      empty($invImage)       || 
+      empty($invThumbnail)   || 
+      empty($invPrice)       || 
+      empty($invStock)       || 
+      empty($invColor)       || 
+      empty($classificationId)
+      ){
+      $message = 'Please provide information for all empty form fields.';
+      include '../view/add-vehicle.php';
+      exit;
+    }
+
+    // send data to vehicles-model
+    $newVehicle = insertNewVehicle(
+      $invMake,
+      $invModel,
+      $invDescription,
+      $invImage,
+      $invThumbnail,
+      $invPrice,
+      $invStock,
+      $invColor,
+      $classificationId
+    );
+
+    if($newVehicle === 1){
+      header("Location: /view/add-vehicle.php");
+      // exit;
+    } else {
+      $message = "<p>Sorry, but the new vehicle failed to add. Please try again.</p>";
+      include '/view/add-classifications.php';
+      exit;
+    }
+    break;
 }
 
 
