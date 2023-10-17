@@ -55,7 +55,9 @@
 
             <?php echo $classificationList; ?><br><br>
 
-            <input type="hidden" name="action" value=>
+            <input type="submit" name="submit" id="submitBtn" value="submit">
+
+            <input type="hidden" name="action" value="newVehicle">
 
         </form>
     </main>
