@@ -135,6 +135,7 @@ switch($action){
     );
 
     if($newVehicle === 1){
+      $message = "<p>$invMake $invModel added to inventory.</p>";
       header("Location: /view/add-vehicle.php");
       // exit;
     } else {
