@@ -24,10 +24,10 @@
                 echo $message;
             }
         ?>
-        <form action="">
+        <form action="/phpmotors/vehicles/index.php" method="post">
             <label for="newClassification">New Classification</label>
-            <input type="text" id="newClassification" name="newClassification">
-            <input type="submit" name="submit" id=submitBtn>
+            <input type="text" id="newClassification" name="classificationName">
+            <input type="submit" name="submit" id=submitBtn value="submit">
             
             <input type="hidden" name="action" value="newClass">
         </form>

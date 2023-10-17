@@ -77,9 +77,13 @@ switch($action){
     // send data to vehicles-model
     $newClass = insertNewClassification($classificationName);
 
-    if($newClass !== 1){
+    if($newClass === 1){
+      // include '../view/vehicle-manage.php';
+      header("Location: ../vehicles");
+      // exit;
+    } else {
       $message = "<p>Sorry $clientFirstname, but the registration failed. Please try again.</p>";
-      include '../view/vehicle-manage.php';
+      include '../add-classifications.php';
       exit;
     }
     break;
