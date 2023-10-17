@@ -19,7 +19,15 @@
     </header>
     <main>
         <h1>Add Vehicle</h1>
+
+        <?php
+            if (isset($message)) {
+                echo $message;
+            }
+        ?>
+
         <p>* All Fields are Required</p>
+
         <form action="/phpmotors/accounts/index.php" method="post">
             <label for="make"><span class="required">*</span><strong>Make:</strong></label><br>
             <input type="text" id="make" name="invMake"><br>
@@ -46,6 +54,8 @@
             <input type="text" id="color" name="invColor"><br>
 
             <?php echo $classificationList; ?><br><br>
+
+            <input type="hidden" name="action" value=>
 
         </form>
     </main>
