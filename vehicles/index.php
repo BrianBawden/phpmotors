@@ -33,7 +33,7 @@ $navList .= '</ul>';
 // exit;
 
 // build dynamic classification select list with $classifications.
-$classificationList = '<label for="carClass">Choose car class:</label>';
+$classificationList = '<label for="carClass">*<strong>Choose car class:</strong></label><br>';
 $classificationList .= "<select id='carClass' name='carClass'>";
 foreach ($classifications as $classification) {
   $classificationList .= "<option value='$classification[classificationId]'>$classification[classificationName]</option>";
