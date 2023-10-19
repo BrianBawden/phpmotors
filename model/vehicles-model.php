@@ -42,35 +42,36 @@ function insertNewVehicle(
     $invColor,
     $classificationId
     ){
-
+    
     // object connected to phpmotors database using connection function.
     $db = phpmotorsConnect();
 
     // SQL statement to insert new inventory.
     $sql = 'INSERT INTO inventory 
     (
-    invMake,
-    invModel,
-    invDescription,
-    invImage,
-    invThumbnail,
-    invPrice,
-    invStock,
-    invColor,
-    classificationId
+        invMake,
+        invModel,
+        invDescription,
+        invImage,
+        invThumbnail,
+        invPrice,
+        invStock,
+        invColor,
+        classificationId
     )
     
     VALUES (
-    :invMake,
-    :invModel,
-    :invDescription,
-    :invImage,
-    :invThumbnail,
-    :invPrice,
-    :invStock,
-    :invColor,
-    :classificationId)';
-
+        :invMake,
+        :invModel,
+        :invDescription,
+        :invImage,
+        :invThumbnail,
+        :invPrice,
+        :invStock,
+        :invColor,
+        :classificationId
+    )';
+    
     // prepare statement 
     $stmt = $db->prepare($sql);
 
