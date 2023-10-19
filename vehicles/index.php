@@ -115,8 +115,9 @@ switch($action){
         empty($invColor)       || 
         empty($classificationId)
         ){
-          $message = '<p id="errorMsg">Please provide information for all empty form fields.';
-          include '../view/add-vehicle.php</p>';
+          
+          $message = '<p id="errorMsg">Please provide information for all empty form fields.</p>';
+          include '../view/add-vehicle.php';
           exit;
         }
 
@@ -136,6 +137,7 @@ switch($action){
           );
         } catch (Exception $e) {
           $newVehicle = 0;
+          
         }
         if($newVehicle === 1){
           $message = "<p id='successMsg'>$invMake $invModel added to inventory.</p>";
@@ -144,6 +146,7 @@ switch($action){
           exit;
         } else {
           $message = "<p id='errorMsg'>Sorry, but the new vehicle failed to add. Please try again.</p>";
+
           include '../view/add-vehicle.php';
           exit;
         }
