@@ -70,7 +70,7 @@ h1{
 }
 
 /* styling for message informing user that required information is missing. */
-#missingMsg{
+#errorMsg{
     color: red;
     font-size: large;
 }

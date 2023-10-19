@@ -45,10 +45,10 @@
             <input type="text" id="thumbnail" name="invThumbnail"><br>
 
             <label for="price"><span class="required">*</span><strong>Price:</strong></label><br>
-            <input type="text" id="price" name="invPrice"><br>
+            <input type="number" id="price" name="invPrice"><br>
 
             <label for="stock"><span class="required">*</span><strong>Number in Stock:</strong></label><br>
-            <input type="text" id="stock" name="invStock"><br>
+            <input type="number" id="stock" name="invStock" min="0" max="1100"><br>
 
             <label for="color"><span class="required">*</span><strong>Color:</strong></label><br>
             <input type="text" id="color" name="invColor"><br>
