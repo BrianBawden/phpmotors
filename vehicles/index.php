@@ -121,18 +121,22 @@ switch($action){
         }
 
         // send data to vehicles-model
-        $newVehicle = insertNewVehicle(
-          $invMake,
-          $invModel,
-          $invDescription,
-          $invImage,
-          $invThumbnail,
-          $invPrice,
-          $invStock,
-          $invColor,
-          $classificationId
-        );
-     
+        try {
+
+          $newVehicle = insertNewVehicle(
+            $invMake,
+            $invModel,
+            $invDescription,
+            $invImage,
+            $invThumbnail,
+            $invPrice,
+            $invStock,
+            $invColor,
+            $classificationId
+          );
+        } catch (Exception $e) {
+          $newVehicle = 0;
+        }
         if($newVehicle === 1){
           $message = "<p>$invMake $invModel added to inventory.</p>";
           include '../view/add-vehicle.php';
@@ -140,7 +144,7 @@ switch($action){
           exit;
         } else {
           $message = "<p>Sorry, but the new vehicle failed to add. Please try again.</p>";
-          include '/view/add-classifications.php';
+          include '../view/add-vehicle.php';
           exit;
         }
         break;
