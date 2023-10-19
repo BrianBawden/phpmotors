@@ -87,66 +87,69 @@ switch($action){
     }
     break;
 
-  default:
-    include '../view/vehicle-manage.php';
+    
+    case 'newVehicle':
 
-  case 'newVehicle':
+      
+      // filter and store data
+      $invMake          = filter_input(INPUT_POST, 'invMake');
+      $invModel         = filter_input(INPUT_POST, 'invModel');
+      $invDescription   = filter_input(INPUT_POST, 'invDescription');
+      $invImage         = filter_input(INPUT_POST, 'invImage');
+      $invThumbnail     = filter_input(INPUT_POST, 'invThumbnail');
+      $invPrice         = filter_input(INPUT_POST, 'invPrice');
+      $invStock         = filter_input(INPUT_POST, 'invStock');
+      $invColor         = filter_input(INPUT_POST, 'invColor');
+      $classificationId = filter_input(INPUT_POST, 'classificationId');
+      
+      
+      // check for missing data
+      if(
+        empty($invMake)        || 
+        empty($invModel)       || 
+        empty($invDescription) || 
+        empty($invImage)       || 
+        empty($invThumbnail)   || 
+        empty($invPrice)       || 
+        empty($invStock)       || 
+        empty($invColor)       || 
+        empty($classificationId)
+        ){
+          $message = 'Please provide information for all empty form fields.';
+          include '../view/add-vehicle.php';
+          exit;
+        }
 
-    // filter and store data
-    $invMake          = filter_input(INPUT_POST, 'invMake');
-    $invModel         = filter_input(INPUT_POST, 'invModel');
-    $invDescription   = filter_input(INPUT_POST, 'invDescription');
-    $invImage         = filter_input(INPUT_POST, 'invImage');
-    $invThumbnail     = filter_input(INPUT_POST, 'invThumbnail');
-    $invPrice         = filter_input(INPUT_POST, 'invPrice');
-    $invStock         = filter_input(INPUT_POST, 'invStock');
-    $invColor         = filter_input(INPUT_POST, 'invColor');
-    $classificationId = filter_input(INPUT_POST, 'carClass');
+        // send data to vehicles-model
+        $newVehicle = insertNewVehicle(
+          $invMake,
+          $invModel,
+          $invDescription,
+          $invImage,
+          $invThumbnail,
+          $invPrice,
+          $invStock,
+          $invColor,
+          $classificationId
+        );
+    
+        if($newVehicle === 1){
+          $message = "<p>$invMake $invModel added to inventory.</p>";
+          include '../view/add-vehicle.php';
+          // header  ("Location: /vehicles?action='add-vehicle'");  // ("Location: ../add-vehicle.php");
+          exit;
+        } else {
+          $message = "<p>Sorry, but the new vehicle failed to add. Please try again.</p>";
+          include '/view/add-classifications.php';
+          exit;
+        }
+        break;
 
-
-    // check for missing data
-    if(
-      empty($invMake)        || 
-      empty($invModel)       || 
-      empty($invDescription) || 
-      empty($invImage)       || 
-      empty($invThumbnail)   || 
-      empty($invPrice)       || 
-      empty($invStock)       || 
-      empty($invColor)       || 
-      empty($classificationId)
-      ){
-      $message = 'Please provide information for all empty form fields.';
-      include '../view/add-vehicle.php';
-      exit;
-    }
-
-    // send data to vehicles-model
-    $newVehicle = insertNewVehicle(
-      $invMake,
-      $invModel,
-      $invDescription,
-      $invImage,
-      $invThumbnail,
-      $invPrice,
-      $invStock,
-      $invColor,
-      $classificationId
-    );
-
-    if($newVehicle === 1){
-      $message = "<p>$invMake $invModel added to inventory.</p>";
-      header("Location: /view/add-vehicle.php");
-      // exit;
-    } else {
-      $message = "<p>Sorry, but the new vehicle failed to add. Please try again.</p>";
-      include '/view/add-classifications.php';
-      exit;
-    }
-    break;
-}
-
-
-
-
-?>
+        default:
+          include '../view/vehicle-manage.php';
+      }
+      
+      
+      
+      
+      ?>
