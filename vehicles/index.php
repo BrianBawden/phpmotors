@@ -132,7 +132,7 @@ switch($action){
           $invColor,
           $classificationId
         );
-    
+     
         if($newVehicle === 1){
           $message = "<p>$invMake $invModel added to inventory.</p>";
           include '../view/add-vehicle.php';
