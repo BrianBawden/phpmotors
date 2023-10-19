@@ -28,7 +28,7 @@
 
         <p>* All Fields are Required</p>
 
-        <form action="/phpmotors/accounts/index.php" method="post">
+        <form action="/phpmotors/vehicles/index.php" method="post">
             <label for="make"><span class="required">*</span><strong>Make:</strong></label><br>
             <input type="text" id="make" name="invMake"><br>
 
