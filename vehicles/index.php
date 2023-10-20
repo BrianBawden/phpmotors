@@ -81,7 +81,7 @@ switch($action){
       header("Location: ../vehicles");
       // exit;
     } else {
-      $message = "<p id='errorMsg'>Sorry $clientFirstname, but the registration failed. Please try again.</p>";
+      $message = "<p id='errorMsg'>Sorry, but the new classification failed.</p>";
       include '../add-classifications.php';
       exit;
     }
@@ -154,9 +154,6 @@ switch($action){
 
         default:
           include '../view/vehicle-manage.php';
-      }
-      
-      
-      
-      
+      }      
+
       ?>
