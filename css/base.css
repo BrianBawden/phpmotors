@@ -71,7 +71,7 @@ h1{
 
 /* styling for message informing user that required information is missing. */
 #errorMsg{
-    color: red;
+    color: #A80000;
     font-size: large;
 }
 /* styling for successful registration. */
