@@ -45,7 +45,7 @@
             <input type="text" id="thumbnail" name="invThumbnail"><br>
 
             <label for="price"><span class="required">*</span><strong>Price:</strong></label><br>
-            <input type="number" id="price" name="invPrice"><br>
+            <input type="number" id="price" name="invPrice" min="0"><br>
 
             <label for="stock"><span class="required">*</span><strong>Number in Stock:</strong></label><br>
             <input type="number" id="stock" name="invStock" min="0" max="1100"><br>
