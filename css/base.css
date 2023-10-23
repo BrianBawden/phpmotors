@@ -136,7 +136,7 @@ footer{
 
 /* Register view */
 
-#pwDirections{
+.directions{
     color: #525252;
     font-size: .75rem;
 }

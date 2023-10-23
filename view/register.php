@@ -35,7 +35,7 @@
             <label for="email"><span>*</span><strong>Email:</strong></label><br>
             <input type="email" id="email" name="clientEmail" required <?php if(isset($clientEmail)){echo "value='$clientEmail'";}  ?>><br>
 
-            <span id="pwDirections">Password must be at least 8 characters and include: one upper case, one lower case, one special character, and one number.</span><br>
+            <span class="directions">Password must be at least 8 characters and include: one upper case, one lower case, one special character, and one number.</span><br>
             <label for="password"><span>*</span><strong>Password:</strong></label><br>
             <input type="password" id="password" name="clientPassword" required pattern="(?=^.{8,}$)(?=.*\d)(?=.*\W+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"><br>
             
