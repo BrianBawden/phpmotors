@@ -10,6 +10,8 @@ $action = filter_input(INPUT_POST, 'action');
 
 // Get the database connection file
 require_once '../library/connections.php';
+// get the functions file from library
+require_once '../library/functions.php';
 // Get the PHP Motors model for use as needed
 require_once '../model/main-model.php';// Get the database connection file
 // Get the accounts model
@@ -40,7 +42,22 @@ $navList .= '</ul>';
  switch ($action){
 
   case 'sign_in':
-    include '../view/sign_in.php';
+    include '../view/login.php';
+    break;
+
+  case 'Login';
+    $clientEmail = trim(filter_input(INPUT_POST, 'clientEmail', FILTER_SANITIZE_EMAIL));
+    $clientPassword = trim(filter_input(INPUT_POST, 'password', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
+
+    $clientEmail = checkEmail($clientEmail);
+    $checkPassword = checkPassword($clientPassword);
+
+    if(empty($clientEmail) || empty($checkPassword)){
+
+      $message = '<p id="errorMsg">Invalid email or password.</p>';
+      include '../view/login.php';
+      exit; 
+    }
     break;
 
   case 'register':
@@ -50,14 +67,16 @@ $navList .= '</ul>';
   case 'registered':
 
     // Filter and store the data
-    $clientFirstname = filter_input(INPUT_POST, 'clientFirstname');
-    $clientLastname = filter_input(INPUT_POST, 'clientLastname');
-    $clientEmail = filter_input(INPUT_POST, 'clientEmail');
-    $clientPassword = filter_input(INPUT_POST, 'clientPassword');
+    $clientFirstname = trim(filter_input(INPUT_POST, 'clientFirstname', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
+    $clientLastname = trim(filter_input(INPUT_POST, 'clientLastname', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
+    $clientEmail = trim(filter_input(INPUT_POST, 'clientEmail', FILTER_SANITIZE_EMAIL));
+    $clientPassword = trim(filter_input(INPUT_POST, 'clientPassword', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
 
+    $clientEmail = checkEmail($clientEmail);
+    $checkPassword = checkPassword($clientPassword);
 
     // Check for missing data
-    if(empty($clientFirstname) || empty($clientLastname) || empty($clientEmail) || empty($clientPassword)){
+    if(empty($clientFirstname) || empty($clientLastname) || empty($clientEmail) || empty($checkPassword)){
 
       $message = '<p id="errorMsg">Please provide information for all empty form fields.</p>';
       include '../view/register.php';
@@ -70,7 +89,7 @@ $navList .= '</ul>';
     // Check and report the result
     if($regOutcome === 1){
       $message = "<p id='successMsg'>Thanks for registering <strong>$clientFirstname<?strong>. Please use your email and password to login.</p>";
-      include '../view/sign_in.php';
+      include '../view/login.php';
       exit;
     } else {
       $message = "<p id ='errorMsg'>Sorry $clientFirstname, but the registration failed. Please try again.</p>";

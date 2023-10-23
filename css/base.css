@@ -131,3 +131,12 @@ footer{
     text-align: center;
     font-size: .75rem;
 }
+
+
+
+/* Register view */
+
+#pwDirections{
+    color: #525252;
+    font-size: .75rem;
+}

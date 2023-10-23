@@ -25,19 +25,19 @@
             }
             ?>
         </p>
-        <form action="/phpmotors/accounts/index.php" method="post">
-            <label for="fName"><span class="required">*</span><strong>First Name:</strong></label><br>
-            <input type="text" id="fName" name="clientFirstname"><br>
+        <form action="/phpmotors/accounts/" method="post">
+            <label for="fName"><span>*</span><strong>First Name:</strong></label><br>
+            <input type="text" id="fName" name="clientFirstname" required <?php if(isset($clientFirstname)){echo "value='$clientFirstname'";}  ?>><br>
 
-            <label for="lname"><span class="required">*</span><strong>Last Name:</strong></label><br>
-            <input type="text" id="lname" name="clientLastname"><br>
+            <label for="lname"><span>*</span><strong>Last Name:</strong></label><br>
+            <input type="text" id="lname" name="clientLastname" required <?php if(isset($clientLastname)){echo "value='$clientLastname'";}  ?>><br>
 
-            <label for="email"><span class="required">*</span><strong>Email:</strong></label><br>
-            <input type="email" id="email" name="clientEmail"><br>
+            <label for="email"><span>*</span><strong>Email:</strong></label><br>
+            <input type="email" id="email" name="clientEmail" required <?php if(isset($clientEmail)){echo "value='$clientEmail'";}  ?>><br>
 
-            <label for="password"><span class="required">*</span><strong>Password:</strong></label><br>
-            <input type="password" id="password" name="clientPassword"><br>
-            <p>Password must be at least 8 characters and include: one capital case, one lower case, and one number.</p>
+            <span id="pwDirections">Password must be at least 8 characters and include: one upper case, one lower case, one special character, and one number.</span><br>
+            <label for="password"><span>*</span><strong>Password:</strong></label><br>
+            <input type="password" id="password" name="clientPassword" required pattern="(?=^.{8,}$)(?=.*\d)(?=.*\W+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"><br>
             
             <input type="submit" name="submit" id="regbtn" value="register">
             <!-- Add the action name - value pair -->
