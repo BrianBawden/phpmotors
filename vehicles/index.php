@@ -69,7 +69,7 @@ switch($action){
 
     // check for missing data
     if(empty($classificationName)){
-      $message = 'Please provide information for all empty form fields.';
+      $message = '<p id="errorMsg">Please provide information for all empty form fields.</p>';
       include '../view/add-classification.php';
       exit;
     }
@@ -81,7 +81,7 @@ switch($action){
       header("Location: ../vehicles");
       // exit;
     } else {
-      $message = "<p>Sorry $clientFirstname, but the registration failed. Please try again.</p>";
+      $message = "<p id='errorMsg'>Sorry, but the new classification failed.</p>";
       include '../add-classifications.php';
       exit;
     }
@@ -115,7 +115,8 @@ switch($action){
         empty($invColor)       || 
         empty($classificationId)
         ){
-          $message = 'Please provide information for all empty form fields.';
+          
+          $message = '<p id="errorMsg">Please provide information for all empty form fields.</p>';
           include '../view/add-vehicle.php';
           exit;
         }
@@ -136,14 +137,16 @@ switch($action){
           );
         } catch (Exception $e) {
           $newVehicle = 0;
+          
         }
         if($newVehicle === 1){
-          $message = "<p>$invMake $invModel added to inventory.</p>";
+          $message = "<p id='successMsg'>$invMake $invModel added to inventory.</p>";
           include '../view/add-vehicle.php';
           // header  ("Location: /vehicles?action='add-vehicle'");  // ("Location: ../add-vehicle.php");
           exit;
         } else {
-          $message = "<p>Sorry, but the new vehicle failed to add. Please try again.</p>";
+          $message = "<p id='errorMsg'>Sorry, but the new vehicle failed to add. Please try again.</p>";
+
           include '../view/add-vehicle.php';
           exit;
         }
@@ -151,9 +154,6 @@ switch($action){
 
         default:
           include '../view/vehicle-manage.php';
-      }
-      
-      
-      
-      
+      }      
+
       ?>

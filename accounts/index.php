@@ -58,7 +58,8 @@ $navList .= '</ul>';
 
     // Check for missing data
     if(empty($clientFirstname) || empty($clientLastname) || empty($clientEmail) || empty($clientPassword)){
-      $message = 'Please provide information for all empty form fields.';
+
+      $message = '<p id="errorMsg">Please provide information for all empty form fields.</p>';
       include '../view/register.php';
       exit; 
     }
@@ -68,11 +69,11 @@ $navList .= '</ul>';
 
     // Check and report the result
     if($regOutcome === 1){
-      $message = "Thanks for registering <strong>$clientFirstname<?strong>. Please use your email and password to login.";
+      $message = "<p id='successMsg'>Thanks for registering <strong>$clientFirstname<?strong>. Please use your email and password to login.</p>";
       include '../view/sign_in.php';
       exit;
     } else {
-      $message = "<p>Sorry $clientFirstname, but the registration failed. Please try again.</p>";
+      $message = "<p id ='errorMsg'>Sorry $clientFirstname, but the registration failed. Please try again.</p>";
       include '../view/register.php';
       exit;
     }
