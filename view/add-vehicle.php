@@ -28,30 +28,37 @@
 
         <p>* All Fields are Required</p>
 
-        <form action="/phpmotors/vehicles/index.php" method="post">
+        <form action="/phpmotors/vehicles/" method="post" enctype="multipart/form-data">
             <label for="make"><span class="required">*</span><strong>Make:</strong></label><br>
-            <input type="text" id="make" name="invMake"><br>
+            <span class="directions">Max length 30 characters</span><br>
+            <input type="text" id="make" name="invMake" maxlength="30" required <?php if(isset($invMake)){echo "value='$invMake'";}  ?>><br>
 
             <label for="model"><span class="required">*</span><strong>Model:</strong></label><br>
-            <input type="text" id="model" name="invModel"><br>
+            <span class="directions">Max length 30 characters</span><br>
+            <input type="text" id="model" name="invModel" maxlength="30" required <?php if(isset($invModel)){echo "value='$invModel'";}  ?>><br>
 
             <label for="description"><span class="required">*</span><strong>Description:</strong></label><br>
-            <textarea id="description" name="invDescription" rows="7" cols="20"></textarea><br>
+            <textarea id="description" name="invDescription" required rows="7" cols="20"><?php if(isset($invDescription)){echo "value='$invDescription'";}  ?></textarea><br>
 
             <label for="image"><span class="required">*</span><strong>Image Path:</strong></label><br>
-            <input type="text" id="image" name="invImage" value="/phpmotors/images/no-image.png"><br>
+            <span class="directions">Max length 50 characters</span><br>
+            <input type="text" id="image" name="invImage" maxlength="50" required <?php if(isset($invImage)){echo "value='$invImage'";}  ?> value="/phpmotors/images/no-image.png"><br>
 
             <label for="thumbnail"><span class="required">*</span><strong>Thumbnail Path:</strong></label><br>
-            <input type="text" id="thumbnail" name="invThumbnail"><br>
-
+            <span class="directions">Max length 50 characters</span><br>
+            <input type="text" id="thumbnail" name="invThumbnail" maxlength="50" required <?php if(isset($invThumbnail)){echo "value='$invThumbnail'";}  ?>><br>
+            
             <label for="price"><span class="required">*</span><strong>Price:</strong></label><br>
-            <input type="number" id="price" name="invPrice" min="0"><br>
+            <span class="directions">Max length 10 characters</span><br>
+            <input type="number" id="price" name="invPrice" step="0.01" min="0" required <?php if(isset($invPrice)){echo "value='$invPrice'";}  ?> min="1"><br>
 
             <label for="stock"><span class="required">*</span><strong>Number in Stock:</strong></label><br>
-            <input type="number" id="stock" name="invStock" min="0" max="1100"><br>
+            <span class="directions">Max value 32500 characters</span><br>
+            <input type="number" id="stock" name="invStock" required <?php if(isset($invStock)){echo "value='$invStock'";}  ?> min="0" max="32767"><br>
 
             <label for="color"><span class="required">*</span><strong>Color:</strong></label><br>
-            <input type="text" id="color" name="invColor"><br>
+            <span class="directions">Max length 20 characters</span><br>
+            <input type="text" id="color" name="invColor" maxlength="20" required <?php if(isset($invColor)){echo "value='$invColor'";}  ?>><br>
 
             <?php echo $classificationList; ?><br><br>
 
