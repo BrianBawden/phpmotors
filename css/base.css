@@ -69,6 +69,14 @@ h1{
     margin-top: -.4rem;
 }
 
+/* FORMS */
+
+form input{
+    margin-bottom: .5rem;
+}
+
+/* MESSAGES */
+
 /* styling for message informing user that required information is missing. */
 #errorMsg{
     color: #A80000;
@@ -78,6 +86,13 @@ h1{
 #successMsg{
     color:#3577b1;
     font-size: large;
+}
+
+/* style for input directions  */
+.directions{
+    color: #525252;
+    font-size: .75rem;
+    
 }
 
 .carInfo table{
@@ -133,10 +148,3 @@ footer{
 }
 
 
-
-/* Register view */
-
-.directions{
-    color: #525252;
-    font-size: .75rem;
-}
