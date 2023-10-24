@@ -14,6 +14,14 @@ function checkPassword($clientPassword) {
     return preg_match($pattern, $clientPassword);
 }
 
+function maxLength($textLength, $maxLength){
+
+    if(strlen($textLength) <= $maxLength){
+        return 1;
+    } else{
+        return 0;
+    }
+}
 
 
 ?>
