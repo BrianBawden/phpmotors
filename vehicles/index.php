@@ -70,7 +70,10 @@ switch($action){
     $classificationName = trim(filter_input(INPUT_POST, 'classificationName', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
 
     // check for missing data
-    if(empty($classificationName)){
+    if(
+       empty($classificationName) || 
+       empty(maxLength($classificationName, 30))
+      ){
       $message = '<p id="errorMsg">Error adding Classification, please try again.</p>';
       include '../view/add-classification.php';
       exit;
@@ -107,18 +110,23 @@ switch($action){
       
       // check for missing data
       if(
-        empty($invMake)        || 
-        empty($invModel)       || 
-        empty($invDescription) || 
-        empty($invImage)       || 
-        empty($invThumbnail)   || 
-        empty($invPrice)       || 
-        empty($invStock)       || 
-        empty($invColor)       || 
+        empty($invMake)                     ||
+        empty(maxLength($invMake, 30))      ||
+        empty($invModel)                    ||
+        empty(maxLength($invModel, 30))     || 
+        empty($invDescription)              || 
+        empty($invImage)                    || 
+        empty(maxLength($invImage, 50))     || 
+        empty($invThumbnail)                || 
+        empty(maxLength($invThumbnail, 50)) || 
+        empty($invPrice)                    || 
+        empty($invStock)                    || 
+        empty($invColor)                    ||
+        empty(maxLength($invColor, 20))     || 
         empty($classificationId)
         ){
           
-          $message = '<p id="errorMsg">Please provide information for all empty form fields.</p>';
+          $message = '<p id="errorMsg">Please provide correct information for all fields.</p>';
           include '../view/add-vehicle.php';
           exit;
         }
