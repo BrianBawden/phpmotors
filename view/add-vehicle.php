@@ -1,4 +1,19 @@
-<!DOCTYPE html>
+<?php
+// build select list.
+$classificationList = '<label for="carClass">*<strong>Choose car class:</strong></label><br>';
+$classificationList .= "<select id='carClass' name='classificationId'>";
+foreach ($classifications as $classification) {
+  $classificationList .= "<option value='$classification[classificationId]'";
+  if (isset($classificationId)){
+    if($classification['classificationId'] == $classificationId){
+        $classificationList .= ' selected ';
+    }
+  }
+  $classificationList .= ">$classification[classificationName]</option>";
+}
+$classificationList .= '</select>';
+
+?><!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -38,7 +53,7 @@
             <input type="text" id="model" name="invModel" maxlength="30" required <?php if(isset($invModel)){echo "value='$invModel'";}  ?>><br>
 
             <label for="description"><span class="required">*</span><strong>Description:</strong></label><br>
-            <textarea id="description" name="invDescription" required rows="7" cols="20"><?php if(isset($invDescription)){echo "value='$invDescription'";}  ?></textarea><br>
+            <textarea id="description" name="invDescription" required rows="7" cols="20"><?php if(isset($invDescription)){echo "$invDescription";}  ?></textarea><br>
 
             <label for="image"><span class="required">*</span><strong>Image Path:</strong></label><br>
             <span class="directions">Max length 50 characters</span><br>

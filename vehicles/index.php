@@ -35,12 +35,12 @@ $navList .= '</ul>';
 // exit;
 
 // build dynamic classification select list with $classifications.
-$classificationList = '<label for="carClass">*<strong>Choose car class:</strong></label><br>';
-$classificationList .= "<select id='carClass' name='classificationId'>";
-foreach ($classifications as $classification) {
-  $classificationList .= "<option value='$classification[classificationId]'>$classification[classificationName]</option>";
-}
-$classificationList .= '</select>';
+// $classificationList = '<label for="carClass">*<strong>Choose car class:</strong></label><br>';
+// $classificationList .= "<select id='carClass' name='classificationId'>";
+// foreach ($classifications as $classification) {
+//   $classificationList .= "<option value='$classification[classificationId]'>$classification[classificationName]</option>";
+// }
+// $classificationList .= '</select>';
 
 // test $classificationList: passed
 // echo $classificationList;
@@ -120,10 +120,14 @@ switch($action){
         empty($invThumbnail)                || 
         empty(maxLength($invThumbnail, 50)) || 
         empty($invPrice)                    || 
+        empty(minLength($invPrice, 0))      ||
         empty($invStock)                    || 
+        empty(maxLength($invStock, 20))     || 
         empty($invColor)                    ||
         empty(maxLength($invColor, 20))     || 
-        empty($classificationId)
+        empty($classificationId)            ||
+        empty(maxLength($classificationId, 11))      
+
         ){
           
           $message = '<p id="errorMsg">Please provide correct information for all fields.</p>';
