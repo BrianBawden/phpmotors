@@ -23,5 +23,14 @@ function maxLength($textLength, $maxLength){
     }
 }
 
+function minLength($textLength, $minLength){
+
+    if(strlen($textLength) >= $minLength){
+        return 1;
+    } else{
+        return 0;
+    }
+}
+
 
 ?>
