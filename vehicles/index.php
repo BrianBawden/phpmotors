@@ -17,34 +17,13 @@ require_once '../model/main-model.php';
 require_once '../model/vehicles-model.php';
 
 $classifications = GetClassifications();
-
 // Test connection to db: passed
 // var_dump($classifications);
 // exit;
 
 // build nav with $classifications.
-$navList = '<ul>';
-$navList .= "<li><a href='/phpmotors/index.php' title='View the PHP Motors home page'>Home</a></li>";
-foreach ($classifications as $classification) {
-  $navList .= "<li><a href='/phpmotors/index.php?action=".urlencode($classification['classificationName'])."' title='View our $classification[classificationName] product line'>$classification[classificationName]</a></li>";
-}
-$navList .= '</ul>';
+$navList = navList($classifications);
 
-// // test $navList: passed
-// echo $navList;
-// exit;
-
-// build dynamic classification select list with $classifications.
-// $classificationList = '<label for="carClass">*<strong>Choose car class:</strong></label><br>';
-// $classificationList .= "<select id='carClass' name='classificationId'>";
-// foreach ($classifications as $classification) {
-//   $classificationList .= "<option value='$classification[classificationId]'>$classification[classificationName]</option>";
-// }
-// $classificationList .= '</select>';
-
-// test $classificationList: passed
-// echo $classificationList;
-// exit;
 
 // switch for 'action' value default home.php.
 switch($action){
@@ -103,9 +82,9 @@ switch($action){
       $invImage         = trim(filter_input(INPUT_POST, 'invImage', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
       $invThumbnail     = trim(filter_input(INPUT_POST, 'invThumbnail', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
       $invPrice         = trim(filter_input(INPUT_POST, 'invPrice', FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION));
-      $invStock         = trim(filter_input(INPUT_POST, 'invStock', FILTER_SANITIZE_NUMBER_INT, FILTER_FLAG_ALLOW_FRACTION));
+      $invStock         = trim(filter_input(INPUT_POST, 'invStock',  FILTER_SANITIZE_NUMBER_INT));
       $invColor         = trim(filter_input(INPUT_POST, 'invColor', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
-      $classificationId = trim(filter_input(INPUT_POST, 'classificationId', FILTER_SANITIZE_NUMBER_INT));
+      $classificationId = trim(filter_input(INPUT_POST, 'classificationId',  FILTER_SANITIZE_NUMBER_INT));
       
       
       // check for missing data
