@@ -65,7 +65,7 @@ $classificationList .= '</select>';
             
             <label for="price"><span class="required">*</span><strong>Price:</strong></label><br>
             <span class="directions">Max length 10 characters</span><br>
-            <input type="number" id="price" name="invPrice" step="0.01" min="0" required <?php if(isset($invPrice)){echo "value='$invPrice'";}  ?> min="1"><br>
+            <input type="number" id="price" name="invPrice" step="0.01" min="1" required <?php if(isset($invPrice)){echo "value='$invPrice'";}  ?>><br>
 
             <label for="stock"><span class="required">*</span><strong>Number in Stock:</strong></label><br>
             <span class="directions">Max value 32500 characters</span><br>
