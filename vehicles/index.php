@@ -2,9 +2,9 @@
 // This is the vehicles controller
 
 // Set $action to filer input post/get
-$action = filter_input(INPUT_POST, 'action');
+$action = trim(filter_input(INPUT_POST, 'action', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
 if ($action == NULL){
-    $action = filter_input(INPUT_GET, 'action');
+    $action = trim(filter_input(INPUT_GET, 'action', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
 }
 
 // connect to database
