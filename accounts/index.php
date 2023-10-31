@@ -69,6 +69,15 @@ switch ($action){
         
         $clientEmail = checkEmail($clientEmail);
         $checkPassword = checkPassword($clientPassword);
+
+        // Check if email in database
+        $checkClientEmail = checkForDuplicateEmail($clientEmail);
+
+        if ($checkClientEmail){
+          $message = '<p id"successMsg">Email already exists. Login?';
+          include '../view/login.php';
+          exit;
+        }
         
         // Check for missing data
         if(empty($clientFirstname) || empty($clientLastname) || empty($clientEmail) || empty($checkPassword)){
@@ -78,9 +87,8 @@ switch ($action){
           exit; 
         }
         
-        
         // Hash the checked password
-        $hashedPassword = password_hash($clientPassword, PASSWORD_DEFAULT);
+        $hashedPassword = password_hash($clientPassword, PASSWORD_DEFAULT) . "tgif";
         
         // Send the data to the model
         $regOutcome = regClient($clientFirstname, $clientLastname, $clientEmail, $hashedPassword);

@@ -54,4 +54,32 @@ function regClient(
     return $rowsChanged;
    }
 
+
+// check client database for duplicate emails
+function checkForDuplicateEmail($clientEmail){
+    
+    $db = phpmotorsConnect(); // connect to database
+
+    // sql count how many clientEmails match $clientEmail.
+    $sql = 'SELECT clientEmail FROM clients
+            WHERE clientEmail = :email';
+
+    // Create the prepared statement using the phpmotors connection
+    $stmt = $db->prepare($sql);
+
+    $stmt->bindValue(':email', $clientEmail, PDO::PARAM_STR);
+
+    $stmt -> execute();
+
+    $stmtValue = $stmt->fetch(PDO::FETCH_NUM);
+
+    $stmt->closeCursor();
+
+    if (empty($stmtValue)){
+        return 0;
+    } else{
+        return 1;
+    }
+}
+
 ?>
