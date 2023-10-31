@@ -16,6 +16,9 @@ body{
     text-align: right;
     padding: .5rem;
 }
+#cookieWelcome{
+    padding-left: 20%;
+}
 
 nav ul{
     list-style-type: none;
