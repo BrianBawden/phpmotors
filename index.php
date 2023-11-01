@@ -1,6 +1,9 @@
 <?php
 // This is the main controller for phpmotors website.
 
+// create/access to session
+session_start();
+
 // set $action to the filtered input post/get for security reasons.
 $action = trim(filter_input(INPUT_POST, 'action', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
  if ($action == NULL){

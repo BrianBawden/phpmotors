@@ -1,6 +1,10 @@
 <?php
 // This is the vehicles controller
 
+// create/access to session
+session_start();
+
+
 // Set $action to filer input post/get
 $action = trim(filter_input(INPUT_POST, 'action', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
 if ($action == NULL){
