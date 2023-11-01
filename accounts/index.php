@@ -76,6 +76,11 @@ switch ($action){
 
     // A valid user exists, log them in
     $_SESSION['loggedin'] = TRUE;
+    if (!isset($_SESSION['loggedin'])) {
+      $message = 'p id="errorMsg">Error with session logging in.</p>';
+      include '../view/login.php';
+      exit;
+    }
 
     // Remove the password from the array
     // the array_pop function removes the last element from an array
@@ -83,6 +88,7 @@ switch ($action){
 
     // Store the array into the session
     $_SESSION['clientData'] = $clientData;
+
     // Send them to the admin view
     include '../view/admin.php';
     exit;
