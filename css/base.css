@@ -16,8 +16,13 @@ body{
     text-align: right;
     padding: .5rem;
 }
-#cookieWelcome{
+#sessionWelcome{
     padding-left: 20%;
+    color: #3577b1;
+}
+
+#sessionWelcome:visited{
+    color: #3577b1;
 }
 
 nav ul{

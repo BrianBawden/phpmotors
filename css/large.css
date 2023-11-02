@@ -17,9 +17,9 @@
 
     
 
-    #cookieWelcome{
+    #sessionWelcome{
         margin: 25%;
-        padding-left: unset;
+        /* padding-left: unset; */
     }
 
     a {

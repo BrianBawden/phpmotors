@@ -29,8 +29,9 @@ $classifications = getClassifications();
 // Build a navigation bar using the $classifications array
 $navList = navList($classifications);
 
-if(isset($_COOKIE['firstname'])){
-  $cookieFirstname = filter_input(INPUT_COOKIE, 'firstname', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+// if user logged in display 'welcome userName' in header
+if(isset($_SESSION['clientData'])){
+  $sessionFirstname = $_SESSION['clientData']['clientFirstname'];
 }
 
 // switch statement reading the $action value to know what view to show, with a default of view/home.php

@@ -32,6 +32,10 @@ $classifications = getClassifications();
 $navList = navList($classifications);
 
 
+// if user logged in display 'welcome userName' in header
+if(isset($_SESSION['clientData'])){
+  $sessionFirstname = $_SESSION['clientData']['clientFirstname'];
+}
 // The commented out code below is to test the nav bar code. 
 
 // echo $navList;
@@ -40,11 +44,15 @@ $navList = navList($classifications);
 // switch statement reading the $action value to know what view to show, with a default of view/home.php
 switch ($action){
   
+  case 'admin':
+    include '../view/admin.php';
+    break;
+    
   case 'sign_in':
       include '../view/login.php';
       break;
       
-  case 'Login';
+  case 'Login':
     $clientEmail = trim(filter_input(INPUT_POST, 'clientEmail', FILTER_SANITIZE_EMAIL));
     $clientPassword = trim(filter_input(INPUT_POST, 'password', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
     

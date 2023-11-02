@@ -28,6 +28,10 @@ $classifications = GetClassifications();
 // build nav with $classifications.
 $navList = navList($classifications);
 
+// if user logged in display 'welcome userName' in header
+if(isset($_SESSION['clientData'])){
+  $sessionFirstname = $_SESSION['clientData']['clientFirstname'];
+}
 
 // switch for 'action' value default home.php.
 switch($action){
