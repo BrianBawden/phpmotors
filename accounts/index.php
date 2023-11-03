@@ -45,6 +45,15 @@ if(isset($_SESSION['clientData'])){
 switch ($action){
   
   case 'admin':
+
+    if(isset($_SESSION['clientData']['clientLevel']) > 1){
+      $adminMessage = '
+      <h2>Inventory Management</h2>
+      <p>Use this link to manage the inventory.</p>
+      <a href="/view/vehicle-manage.php">Vehicle Management</a>
+      ';
+    }
+
     include '../view/admin.php';
     break;
     
@@ -83,10 +92,10 @@ switch ($action){
     }
     // A valid user exists, log them in
     $_SESSION['loggedin'] = TRUE;
-    // if (!isset($_SESSION['loggedin'])) {
-    //   $message = 'p id="errorMsg">Error with session logging in.</p>';
-    //   include '../view/login.php';
-    // }
+    if (!isset($_SESSION['loggedin'])) {
+      $message = 'p id="errorMsg">Error with session logging in.</p>';
+      include '../view/login.php';
+    }
     // Remove the password from the array
     // the array_pop function removes the last element from an array
     array_pop($clientData);

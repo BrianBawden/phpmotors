@@ -31,7 +31,10 @@ if(!$_SESSION['loggedin']){
             <li>First Name: <?php echo $_SESSION['clientData']['clientFirstname']?></li>
             <li>Last Name: <?php echo $_SESSION['clientData']['clientLastname']?></li>
             <li>Email Address: <?php echo $_SESSION['clientData']['clientEmail']?></li>
-            <li>User Level: <?php echo $_SESSION['clientData']['clientLevel']?></li>
+            <?php if (isset($adminMessage)){
+                echo $adminMessage;
+            }
+            ?>
         </ul>
     </main>
     <footer>
