@@ -1,7 +1,16 @@
 <?php
-session_start();
+// session_start();
 if(!$_SESSION['loggedin']){
+
     header('Location: /phpmotors/');
+}
+
+if($_SESSION['clientData']['clientLevel'] > 1){
+    $adminMessage = '
+    <h2>Inventory Management</h2>
+    <p>Use this link to manage the inventory.</p>
+    <a href="../vehicles">Vehicle Management</a>
+    ';
 }
 
 ?><!DOCTYPE html>
@@ -15,12 +24,10 @@ if(!$_SESSION['loggedin']){
 <body>
     <header>
         <div>
-            <div>
-                <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/common/header.php'; ?>
-                <nav>
-                    <?php echo $navList; ?>
-                </nav>
-            </div>
+            <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/common/header.php'; ?>
+            <nav>
+                <?php echo $navList; ?>
+            </nav>
         </div>
     </header>
     <main>
@@ -31,11 +38,13 @@ if(!$_SESSION['loggedin']){
             <li>First Name: <?php echo $_SESSION['clientData']['clientFirstname']?></li>
             <li>Last Name: <?php echo $_SESSION['clientData']['clientLastname']?></li>
             <li>Email Address: <?php echo $_SESSION['clientData']['clientEmail']?></li>
-            <?php if (isset($adminMessage)){
-                echo $adminMessage;
+            <li>Level: <?php echo $_SESSION['clientData']['clientLevel']?></li>
+            </ul>
+            <?php 
+            if (isset($adminMessage)){
+                 echo '<hr>', $adminMessage;
             }
             ?>
-        </ul>
     </main>
     <footer>
         <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/common/footer.php'; ?>

@@ -1,4 +1,17 @@
-<!DOCTYPE html>
+<?php
+if(2 > $_SESSION['clientData']['clientLevel'] || !$_SESSION['loggedin']){  
+    $message = '<p id=errorMsg>Access Denied!</p>';
+    header('Location: /phpmotors/');
+}
+if($_SESSION['clientData']['clientLevel'] > 1){
+    $adminMessage = '
+    <h2>Inventory Management</h2>
+    <p>Use this link to manage the inventory.</p>
+    <a href="../vehicles">Vehicle Management</a>
+    ';
+}
+
+?><!DOCTYPE html>
 <html lang="en">
 
 <head>

@@ -17,7 +17,8 @@ body{
     padding: .5rem;
 }
 #sessionWelcome{
-    padding-left: 20%;
+    float: right;
+    padding: 0.5rem;
     color: #3577b1;
 }
 

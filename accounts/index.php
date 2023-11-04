@@ -43,19 +43,6 @@ if(isset($_SESSION['clientData'])){
 
 // switch statement reading the $action value to know what view to show, with a default of view/home.php
 switch ($action){
-  
-  case 'admin':
-
-    if(isset($_SESSION['clientData']['clientLevel']) > 1){
-      $adminMessage = '
-      <h2>Inventory Management</h2>
-      <p>Use this link to manage the inventory.</p>
-      <a href="/view/vehicle-manage.php">Vehicle Management</a>
-      ';
-    }
-
-    include '../view/admin.php';
-    break;
     
   case 'sign_in':
       include '../view/login.php';
@@ -102,9 +89,17 @@ switch ($action){
 
     // Store the array into the session
     $_SESSION['clientData'] = $clientData;
+
+    if($_SESSION['clientData']['clientLevel'] > 1){
+      $adminMessage = '
+      <h2>Inventory Management</h2>
+      <p>Use this link to manage the inventory.</p>
+      <a href="../vehicles">Vehicle Management</a>
+      ';
+    }
+
     // Send them to the admin view
-    include '../view/admin.php';
-    exit;
+    header('Location: /phpmotors/accounts/?action=admin');
     break;
     
   case 'register':
@@ -157,7 +152,17 @@ switch ($action){
       include '../view/register.php';
       exit;
     }
-  
+
+  case 'admin':
+    include '../view/admin.php';
+    break;
+
+  case 'logout':
+    session_unset();
+    session_destroy();
+    header('Location: /phpmotors');
+    break;
+
   default:
-    include '../view/login.php';
+    include '../view/admin.php';
 }
