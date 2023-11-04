@@ -78,7 +78,7 @@ switch($action){
       exit;
     }
     break;
-
+ 
     
     case 'newVehicle':
 
