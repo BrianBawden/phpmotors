@@ -43,7 +43,7 @@ if(isset($_SESSION['clientData'])){
 
 // switch statement reading the $action value to know what view to show, with a default of view/home.php
 switch ($action){
-    
+     
   case 'sign_in':
       include '../view/login.php';
       break;
