@@ -80,81 +80,96 @@ switch($action){
     break;
  
     
-    case 'newVehicle':
+  case 'newVehicle':
 
-      
-      // filter and store data
-      $invMake          = trim(filter_input(INPUT_POST, 'invMake', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
-      $invModel         = trim(filter_input(INPUT_POST, 'invModel', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
-      $invDescription   = trim(filter_input(INPUT_POST, 'invDescription', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
-      $invImage         = trim(filter_input(INPUT_POST, 'invImage', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
-      $invThumbnail     = trim(filter_input(INPUT_POST, 'invThumbnail', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
-      $invPrice         = trim(filter_input(INPUT_POST, 'invPrice', FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION));
-      $invStock         = trim(filter_input(INPUT_POST, 'invStock',  FILTER_SANITIZE_NUMBER_INT));
-      $invColor         = trim(filter_input(INPUT_POST, 'invColor', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
-      $classificationId = trim(filter_input(INPUT_POST, 'classificationId',  FILTER_SANITIZE_NUMBER_INT));
-      
-      
-      // check for missing data
-      if(
-        empty($invMake)                     ||
-        empty(maxLength($invMake, 30))      ||
-        empty($invModel)                    ||
-        empty(maxLength($invModel, 30))     || 
-        empty($invDescription)              || 
-        empty($invImage)                    || 
-        empty(maxLength($invImage, 50))     || 
-        empty($invThumbnail)                || 
-        empty(maxLength($invThumbnail, 50)) || 
-        empty($invPrice)                    || 
-        empty(minLength($invPrice, 0))      ||
-        empty($invStock)                    || 
-        empty(maxLength($invStock, 20))     || 
-        empty($invColor)                    ||
-        empty(maxLength($invColor, 20))     || 
-        empty($classificationId)            ||
-        empty(maxLength($classificationId, 11))      
+    
+    // filter and store data
+    $invMake          = trim(filter_input(INPUT_POST, 'invMake', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
+    $invModel         = trim(filter_input(INPUT_POST, 'invModel', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
+    $invDescription   = trim(filter_input(INPUT_POST, 'invDescription', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
+    $invImage         = trim(filter_input(INPUT_POST, 'invImage', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
+    $invThumbnail     = trim(filter_input(INPUT_POST, 'invThumbnail', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
+    $invPrice         = trim(filter_input(INPUT_POST, 'invPrice', FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION));
+    $invStock         = trim(filter_input(INPUT_POST, 'invStock',  FILTER_SANITIZE_NUMBER_INT));
+    $invColor         = trim(filter_input(INPUT_POST, 'invColor', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
+    $classificationId = trim(filter_input(INPUT_POST, 'classificationId',  FILTER_SANITIZE_NUMBER_INT));
+    
+    
+    // check for missing data
+    if(
+      empty($invMake)                     ||
+      empty(maxLength($invMake, 30))      ||
+      empty($invModel)                    ||
+      empty(maxLength($invModel, 30))     || 
+      empty($invDescription)              || 
+      empty($invImage)                    || 
+      empty(maxLength($invImage, 50))     || 
+      empty($invThumbnail)                || 
+      empty(maxLength($invThumbnail, 50)) || 
+      empty($invPrice)                    || 
+      empty(minLength($invPrice, 0))      ||
+      empty($invStock)                    || 
+      empty(maxLength($invStock, 20))     || 
+      empty($invColor)                    ||
+      empty(maxLength($invColor, 20))     || 
+      empty($classificationId)            ||
+      empty(maxLength($classificationId, 11))      
 
-        ){
-          
-          $message = '<p id="errorMsg">Please provide correct information for all fields.</p>';
-          include '../view/add-vehicle.php';
-          exit;
-        }
+      ){
+        
+        $message = '<p id="errorMsg">Please provide correct information for all fields.</p>';
+        include '../view/add-vehicle.php';
+        exit;
+      }
 
-        // send data to vehicles-model
-        try {
+      // send data to vehicles-model
+      try {
 
-          $newVehicle = insertNewVehicle(
-            $invMake,
-            $invModel,
-            $invDescription,
-            $invImage,
-            $invThumbnail,
-            $invPrice,
-            $invStock,
-            $invColor,
-            $classificationId
-          );
-        } catch (Exception $e) {
-          $newVehicle = 0;
-          
-        }
-        if($newVehicle === 1){
-          $message = "<p id='successMsg'>$invMake $invModel added to inventory.</p>";
-          include '../view/add-vehicle.php';
-          // header  ("Location: /vehicles?action='add-vehicle'");  // ("Location: ../add-vehicle.php");
-          exit;
-        } else {
-          $message = "<p id='errorMsg'>Sorry, but the new vehicle failed to add. Please try again.</p>";
+        $newVehicle = insertNewVehicle(
+          $invMake,
+          $invModel,
+          $invDescription,
+          $invImage,
+          $invThumbnail,
+          $invPrice,
+          $invStock,
+          $invColor,
+          $classificationId
+        );
+      } catch (Exception $e) {
+        $newVehicle = 0;
+        
+      }
+      if($newVehicle === 1){
+        $message = "<p id='successMsg'>$invMake $invModel added to inventory.</p>";
+        include '../view/add-vehicle.php';
+        // header  ("Location: /vehicles?action='add-vehicle'");  // ("Location: ../add-vehicle.php");
+        exit;
+      } else {
+        $message = "<p id='errorMsg'>Sorry, but the new vehicle failed to add. Please try again.</p>";
 
-          include '../view/add-vehicle.php';
-          exit;
-        }
-        break;
+        include '../view/add-vehicle.php';
+        exit;
+      }
+      break;
 
-        default:
-          include '../view/vehicle-manage.php';
-      }      
+  /* * ********************************** 
+  * Get vehicles by classificationId 
+  * Used for starting Update & Delete process 
+  * ********************************** */ 
+  case 'getInventoryItems': 
+    // Get the classificationId 
+    $classificationId = filter_input(INPUT_GET, 'classificationId', FILTER_SANITIZE_NUMBER_INT); 
+    // Fetch the vehicles by classificationId from the DB 
+    $inventoryArray = getInventoryByClassification($classificationId); 
+    // Convert the array to a JSON object and send it back 
+    echo json_encode($inventoryArray); 
+    break;
+
+  default:
+
+    $classificationList = buildClassificationList($classifications);
+    include '../view/vehicle-manage.php';
+  }      
 
       ?>
