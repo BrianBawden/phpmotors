@@ -144,7 +144,7 @@ switch ($action){
     if($regOutcome === 1){
       setcookie('firstname', $clientFirstname, strtotime('+1 year'), '/');
       $_SESSION["message"] = "<p id='successMsg'>Thanks for registering <strong>$clientFirstname<?strong>. Please use your email and password to login.</p>";
-      header('Location: /phpmotors/accounts/?action=login');
+      header('Location: /phpmotors/accounts/?action=Login');
       // include '../view/login.php';
       exit;
     } else {
