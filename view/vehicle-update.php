@@ -113,6 +113,11 @@ $classificationList .= '</select>';
             <input type="submit" name="submit" id="submitBtn" value="Update Vehicle">
 
             <input type="hidden" name="action" value="updateVehicle">
+            <input type="hidden" name="invId" value=" 
+            <?php if(isset($invInfo['invId'])){ echo $invInfo['invId'];} 
+                  elseif(isset($invId)){ echo $invId; } 
+            ?>
+            ">
 
         </form>
     </main>
