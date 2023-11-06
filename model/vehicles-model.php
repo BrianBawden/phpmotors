@@ -122,5 +122,66 @@ function getInvItemInfo($invId){
     return $invInfo;
 }
 
+// make updates to a vehicle based on id
+function updateVehicle(
+    $invMake,
+    $invModel,
+    $invDescription,
+    $invImage,
+    $invThumbnail,
+    $invPrice,
+    $invStock,
+    $invColor,
+    $classificationId,
+    $invId
+    ){
+    
+    // object connected to phpmotors database using connection function.
+    $db = phpmotorsConnect();
+
+    // SQL statement to insert new inventory.
+    $sql = 'UPDATE 
+              inventory 
+            SET
+              invMake          = :invMake,
+              invModel         = :invModel,
+              invDescription   = :invDescription,
+              invImage         = :invImage,
+              invThumbnail     = :invThumbnail,
+              invPrice         = :invPrice,
+              invStock         = :invStock,
+              invColor         = :invColor,
+              classificationId = :classificationId
+            WHERE
+              invId            = :invId'; 
+
+    
+    // prepare statement 
+    $stmt = $db->prepare($sql);
+
+    //replace placeholders with sql values with type and data.
+    $stmt->bindValue(':invMake',          $invMake,          PDO::PARAM_STR);
+    $stmt->bindValue(':invModel',         $invModel,         PDO::PARAM_STR);
+    $stmt->bindValue(':invDescription',   $invDescription,   PDO::PARAM_STR);
+    $stmt->bindValue(':invImage',         $invImage,         PDO::PARAM_STR);
+    $stmt->bindValue(':invThumbnail',     $invThumbnail,     PDO::PARAM_STR);
+    $stmt->bindValue(':invPrice',         $invPrice,         PDO::PARAM_STR);
+    $stmt->bindValue(':invStock',         $invStock,         PDO::PARAM_STR);
+    $stmt->bindValue(':invColor',         $invColor,         PDO::PARAM_STR);
+    $stmt->bindValue(':classificationId', $classificationId, PDO::PARAM_STR);
+    $stmt->bindValue(':invId',            $invId,            PDO::PARAM_STR);
+
+
+    // execute INSERT $stmt
+    $stmt->execute();
+
+    // Check if success
+    $rowsChanged = $stmt->rowCount();
+
+    // close db
+    $stmt->closeCursor();
+
+    return $rowsChanged;
+}
 
 ?>
