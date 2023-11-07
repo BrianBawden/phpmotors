@@ -184,4 +184,34 @@ function updateVehicle(
     return $rowsChanged;
 }
 
+// delete vehicle
+function deleteVehicle($invId){
+    
+    // object connected to phpmotors database using connection function.
+    $db = phpmotorsConnect();
+
+    // SQL statement to insert new inventory.
+    $sql = 'DELETE FROM 
+              inventory 
+            WHERE
+              invId = :invId'; 
+
+    // prepare statement 
+    $stmt = $db->prepare($sql);
+
+    //replace placeholders with sql values with type and data.
+    $stmt->bindValue(':invId', $invId, PDO::PARAM_STR);
+
+    // execute INSERT $stmt
+    $stmt->execute();
+
+    // Check if success
+    $rowsChanged = $stmt->rowCount();
+
+    // close db
+    $stmt->closeCursor();
+
+    return $rowsChanged;
+
+}
 ?>
