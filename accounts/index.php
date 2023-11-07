@@ -113,6 +113,10 @@ switch ($action){
   case 'updateAccount':
     include '../view/home.php';
   break;
+
+  case 'updatePassword':
+    include '../view/home.php';
+  break;
   
   case 'registered':
       

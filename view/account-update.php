@@ -102,7 +102,21 @@ $classificationList .= '</select>';
         </form>
 
         <h3>Update Password</h3>
-        <p></p>
+        <p class="directions">Password must be at least 8 characters and include: one upper case, one lower case, one special character, and one number.</p>
+        <p class="directions">* Your original password will be changed.</p>
+
+        <form action="/phpmotors/accounts/" method="post">
+            <label for="password"><span>*</span><strong>Password:</strong></label><br>
+            <input type="password" id="password" name="clientPassword" required pattern="(?=^.{8,}$)(?=.*\d)(?=.*\W+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"><br>
+
+            <input type="submit" name="submit" id="submittn" value="Update Password">
+
+            <input type="hidden" name="action" value="updatePassword">
+            <input type="hidden" name="invId" value=" 
+            <?php echo $_SESSION['clientData']['clientId']
+            ?>
+            ">
+        </form>
 
     </main>
     <footer>
