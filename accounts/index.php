@@ -45,8 +45,8 @@ if(isset($_SESSION['clientData'])){
 switch ($action){
      
   case 'sign_in':
-      include '../view/login.php';
-      break;
+    include '../view/login.php';
+  break;
       
   case 'Login':
     $clientEmail = trim(filter_input(INPUT_POST, 'clientEmail', FILTER_SANITIZE_EMAIL));
@@ -100,12 +100,20 @@ switch ($action){
 
     // Send them to the admin view
     header('Location: /phpmotors/accounts/?action=admin');
-    break;
+  break;
     
   case 'register':
     include '../view/register.php';
-    break;
+  break;
       
+  case 'account-update':
+    include '../view/account-update.php';
+  break;
+
+  case 'updateAccount':
+    include '../view/home.php';
+  break;
+  
   case 'registered':
       
     // Filter and store the data
@@ -152,17 +160,18 @@ switch ($action){
       include '../view/register.php';
       exit;
     }
+  break;
 
   case 'admin':
     include '../view/admin.php';
-    break;
+  break;
 
   case 'logout':
     session_unset();
     session_destroy();
     header('Location: /phpmotors');
-    break;
+  break;
 
   default:
-    include '../view/admin.php';
+  include '../view/admin.php';
 }
