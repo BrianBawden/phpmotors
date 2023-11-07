@@ -47,9 +47,6 @@ if($_SESSION['clientData']['clientLevel'] > 1){
             <li><a href="/phpmotors/vehicles/index.php?action=add-vehicle">Add Vehicle</a></li>
         </ul>
         <?php
-            if (isset($message)) { 
-            echo $message; 
-            } 
             if (isset($classificationList)) { 
             echo "<hr>";
             echo '<h2>Vehicles By Classification</h2>'; 
