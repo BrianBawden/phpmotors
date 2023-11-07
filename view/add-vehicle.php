@@ -52,6 +52,9 @@ $classificationList .= '</select>';
             if (isset($message)) {
                 echo $message;
             }
+            if (isset($test)){
+                echo "testing: ", $test;
+            }
         ?>
 
         <p>* All Fields are Required</p>

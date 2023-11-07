@@ -91,7 +91,6 @@ function insertNewVehicle(
 
     // Check if success
     $rowsChanged = $stmt->rowCount();
-
     // close db
     $stmt->closeCursor();
 

@@ -120,7 +120,7 @@ switch($action){
       }
       
       // send data to vehicles-model
-      try {
+    
         
         $newVehicle = insertNewVehicle(
           $invMake,
@@ -133,14 +133,12 @@ switch($action){
           $invColor,
           $classificationId
         );
-      } catch (Exception $e) {
-        $newVehicle = 0;
-        
-      }
+      $test = "starts";
       if($newVehicle === 1){
         $message = "<p id='successMsg'>$invMake $invModel added to inventory.</p>";
-        include '../view/add-vehicle.php';
-        // header  ("Location: /vehicles?action='add-vehicle'");  // ("Location: ../add-vehicle.php");
+        $_SESSION['message'] = $message;
+        
+        header("Location: ../vehicles/?action=add-vehicle");
         exit;
       } else {
         $message = "<p id='errorMsg'>Sorry, but the new vehicle failed to add. Please try again.</p>";
@@ -171,6 +169,16 @@ switch($action){
     }
     include '../view/vehicle-update.php';
     exit;
+  break;
+
+  case 'del':
+    $invId = filter_input(INPUT_GET, 'invId', FILTER_VALIDATE_INT);
+    $invInfo = getInvItemInfo($invId);
+    if(count($invInfo) < 1){
+      $message = '<p id="errorMsg">Sorry, no vehicle information could be found.</p>';
+    }
+    include '../view/vehicle-delete.php';
+    exit;    
   break;
 
   case 'updateVehicle':
@@ -248,6 +256,28 @@ switch($action){
       $message = "<p id='errorMsg'>Sorry, but the update failed. Please try again.</p>";
       
       include '../view/vehicle-update.php';
+      exit;
+    }
+  break;
+
+  case 'deleteVehicle':
+    // filter and store data
+    $invMake          = trim(filter_input(INPUT_POST, 'invMake',           FILTER_SANITIZE_FULL_SPECIAL_CHARS));
+    $invModel         = trim(filter_input(INPUT_POST, 'invModel',          FILTER_SANITIZE_FULL_SPECIAL_CHARS));
+    $invId            = trim(filter_input(INPUT_POST, 'invId',             FILTER_SANITIZE_NUMBER_INT));
+      
+    // send data to vehicles-model
+    $deleteResult = deleteVehicle($invId);
+      
+    if($deleteResult){
+      $message = "<p id='successMsg'class='notify'>The $invMake $invModel has been permanently deleted.</p>";
+      $_SESSION['message'] = $message;
+      header('location: /phpmotors/vehicles/');
+      exit;
+    } else {
+      $message = "<p id='errorMsg'>Sorry, but the $invMake $invModel delete failed. Please try again.</p>";
+      $_SESSION['message'] = $message;
+      header('location: /phpmotors/vehicles/');
       exit;
     }
   break;

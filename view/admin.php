@@ -44,6 +44,9 @@ if($_SESSION['clientData']['clientLevel'] > 1){
             if (isset($adminMessage)){
                  echo '<hr>', $adminMessage;
             }
+            if (isset($message)){
+                echo $message;
+            }
             ?>
     </main>
     <footer>
