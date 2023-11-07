@@ -52,8 +52,7 @@ function regClient(
     
     // Return the indication of success (rows changed)
     return $rowsChanged;
-   }
-
+}
 
 // check client database for duplicate emails
 function checkForDuplicateEmail($clientEmail){

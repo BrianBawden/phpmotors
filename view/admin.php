@@ -1,9 +1,14 @@
 <?php
 // session_start();
 if(!$_SESSION['loggedin']){
-
     header('Location: /phpmotors/');
 }
+$updateAccount = '
+<hr>
+<h2>Update Account</h2>
+<p>Use this link to manage your account.</p>
+<a href="../accounts?action=account-update">Update Account Information</a>
+';
 
 if($_SESSION['clientData']['clientLevel'] > 1){
     $adminMessage = '
@@ -38,9 +43,9 @@ if($_SESSION['clientData']['clientLevel'] > 1){
             <li>First Name: <?php echo $_SESSION['clientData']['clientFirstname']?></li>
             <li>Last Name: <?php echo $_SESSION['clientData']['clientLastname']?></li>
             <li>Email Address: <?php echo $_SESSION['clientData']['clientEmail']?></li>
-            <li>Level: <?php echo $_SESSION['clientData']['clientLevel']?></li>
             </ul>
             <?php 
+            echo $updateAccount;
             if (isset($adminMessage)){
                  echo '<hr>', $adminMessage;
             }
