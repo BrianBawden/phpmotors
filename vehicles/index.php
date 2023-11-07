@@ -137,8 +137,9 @@ switch($action){
       if($newVehicle === 1){
         $message = "<p id='successMsg'>$invMake $invModel added to inventory.</p>";
         $_SESSION['message'] = $message;
-        
-        header("Location: ../vehicles/?action=add-vehicle");
+
+        // include '../view/vehicle-manage.php';
+        header  ("Location: ../vehicles");  // ("Location: ../add-vehicle.php");
         exit;
       } else {
         $message = "<p id='errorMsg'>Sorry, but the new vehicle failed to add. Please try again.</p>";
