@@ -42,14 +42,13 @@ if($_SESSION['clientData']['clientLevel'] > 1){
     </header>
     <main>
         
+        <h1>Logged In: <?php echo $_SESSION['clientData']['clientFirstname'], ' ' , $_SESSION['clientData']['clientLastname'];?></h1>
+
     <?php
         if (isset($message)){
             echo $message;
         }
     ?>
-
-        <h1>Logged In: <?php echo $_SESSION['clientData']['clientFirstname'], ' ' , $_SESSION['clientData']['clientLastname'];?></h1>
-
         <ul>
             <li>First Name: <?php echo $_SESSION['clientData']['clientFirstname']?></li>
             <li>Last Name: <?php echo $_SESSION['clientData']['clientLastname']?></li>
