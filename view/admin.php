@@ -7,7 +7,7 @@ $updateAccount = '
 <hr>
 <h2>Update Account</h2>
 <p>Use this link to manage your account.</p>
-<a href="../accounts?action=account-update">Update Account Information</a>
+<a href="../accounts?action=client-update">Update Account Information</a>
 ';
 
 if(isset($_SESSION['message'])){

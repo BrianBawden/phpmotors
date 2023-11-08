@@ -93,6 +93,17 @@ function getClient($clientEmail){
     return $clientData;
 }
 
+function getClientId($clientId){
+    $db = phpmotorsConnect();
+    $sql = 'SELECT clientId, clientFirstname, clientLastname, clientEmail, clientLevel, clientPassword FROM clients WHERE clientId = :clientId';
+    $stmt = $db->prepare($sql);
+    $stmt->bindValue(':clientId', $clientId, PDO::PARAM_STR);
+    $stmt->execute();
+    $clientData = $stmt->fetch(PDO::FETCH_ASSOC);
+    $stmt->closeCursor();
+    return $clientData;
+}
+
 function updateAccount($clientFirstname, $clientLastname, $clientEmail, $clientId){
     // Create a connection object using the phpmotors connection function
     $db = phpmotorsConnect();
@@ -122,8 +133,7 @@ function updateAccount($clientFirstname, $clientLastname, $clientEmail, $clientI
 
 function updatePassword($clientPassword, $clientId){
     $db = phpmotorsConnect();
-echo "password: ", $clientPassword;
-echo "Id: ", $clientId;
+
     $sql = 'UPDATE
                 clients
             SET

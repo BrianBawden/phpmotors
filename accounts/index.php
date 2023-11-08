@@ -106,8 +106,8 @@ switch ($action){
     include '../view/register.php';
   break;
       
-  case 'account-update':
-    include '../view/account-update.php';
+  case 'client-update':
+    include '../view/client-update.php';
   break;
 
   case 'updateAccount':
@@ -120,8 +120,8 @@ switch ($action){
     $validEmail      = checkEmail($clientEmail);
     $checkClientEmail = checkForDuplicateEmail($clientEmail);
     if(empty($clientFirstname) || empty($clientLastname) || empty($validEmail)){
-      $message = '<p id="errorMsg">Please provide information for all empty form fields.</p>';
-      include '../view/account-update.php';
+      $_SESSION['message'] = '<p id="errorMsg">Please provide information for all empty form fields.</p>';
+      include '../view/client-update.php';
       exit; 
     }
     
@@ -138,7 +138,7 @@ switch ($action){
       exit;
     }else{
       $_SESSION["message"] = "<p id='errorMsg'>Update failed, please try again.</p>";
-      include '/phpmotors/accounts/?action=account-update';
+      include '/phpmotors/accounts/?action=client-update';
       exit;
     }
 
@@ -151,8 +151,8 @@ switch ($action){
     $checkPassword = checkPassword($clientPassword);
     
     if(empty($checkPassword)){
-      $message = '<p id="errorMsg">Please provide information for all empty form fields.</p>';
-      include '../view/account-update.php';
+      $_SESSION['message'] = '<p id="errorMsg">Please provide password with at least 8 characters and include: one upper case, one lower case, one special character, and one number.</p>';
+      include '../view/client-update.php';
       exit; 
     }
     
@@ -165,7 +165,7 @@ switch ($action){
       header('Location: /phpmotors/accounts/?action=admin');
     }else{
       $_SESSION["message"] = "<p id='errorMsg'>Password update failed.</p>";
-      include '../view/account-update.php';
+      include '../view/client-update.php';
     }
 
   break;

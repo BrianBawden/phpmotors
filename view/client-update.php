@@ -44,13 +44,7 @@ $classificationList .= '</select>';
 
 <head>
     <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/common/head.php'; ?>
-    <title><?php
-            // if (isset($invInfo['invMake']) && isset($invInfo['invModel'])) {
-               // echo "Modify $invInfo[invMake] $invInfo[invModel]";
-            //} elseif (isset($invMake) && isset($invModel)) {
-              //  echo "Modify $invMake $invModel";
-           // } 
-           ?> 
+    <title>
         Account Management
     </title>
 </head>
