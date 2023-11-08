@@ -99,9 +99,9 @@ function getClientId($clientId){
     $stmt = $db->prepare($sql);
     $stmt->bindValue(':clientId', $clientId, PDO::PARAM_STR);
     $stmt->execute();
-    $clientData = $stmt->fetch(PDO::FETCH_ASSOC);
+    $clientInfo = $stmt->fetch(PDO::FETCH_ASSOC);
     $stmt->closeCursor();
-    return $clientData;
+    return $clientInfo;
 }
 
 function updateAccount($clientFirstname, $clientLastname, $clientEmail, $clientId){

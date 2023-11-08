@@ -130,7 +130,7 @@ switch ($action){
       setcookie('firstname', $clientFirstname, strtotime('+1 year'), '/');
       $_SESSION["message"] = "<p id='successMsg'>Thanks for updating $clientFirstname account.</p>";
       header('Location: /phpmotors/accounts/?action=admin');
-      $clientData = getClient($clientEmail); // array of client info that matches email.
+      $clientData = getClientId($clientId);
       $_SESSION['clientData'] = $clientData;
       $clientFirstname = "";
       $clientLastname  = "";
