@@ -38,12 +38,12 @@ if($_SESSION['clientData']['clientLevel'] > 1){
     <main>
         <h1>Vehicle Management</h1>
         <?php
-            //if (isset($message)) {
-              //  echo $message;
-            //}
+            if (isset($message)) {
+               echo $message;
+            }
         ?>
-        <ul>
-            <li><a href="/phpmotors/vehicles/index.php?action=add-classification">Add Classification</a></li>
+        <ul class="manageVeh">
+            <li ><a href="/phpmotors/vehicles/index.php?action=add-classification">Add Classification</a></li>
             <li><a href="/phpmotors/vehicles/index.php?action=add-vehicle">Add Vehicle</a></li>
         </ul>
         <?php

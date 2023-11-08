@@ -10,6 +10,10 @@ $updateAccount = '
 <a href="../accounts?action=account-update">Update Account Information</a>
 ';
 
+if(isset($_SESSION['message'])){
+    $message = $_SESSION['message'];
+}
+
 if($_SESSION['clientData']['clientLevel'] > 1){
     $adminMessage = '
     <h2>Inventory Management</h2>
@@ -36,6 +40,12 @@ if($_SESSION['clientData']['clientLevel'] > 1){
         </div>
     </header>
     <main>
+        
+    <?php
+        if (isset($message)){
+            echo $message;
+        }
+    ?>
 
         <h1>Logged In: <?php echo $_SESSION['clientData']['clientFirstname'], ' ' , $_SESSION['clientData']['clientLastname'];?></h1>
 
@@ -48,9 +58,6 @@ if($_SESSION['clientData']['clientLevel'] > 1){
             echo $updateAccount;
             if (isset($adminMessage)){
                  echo '<hr>', $adminMessage;
-            }
-            if (isset($message)){
-                echo $message;
             }
             ?>
     </main>

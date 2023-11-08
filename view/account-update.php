@@ -5,6 +5,10 @@ if (2 > $_SESSION['clientData']['clientLevel'] || !$_SESSION['loggedin']) {
     header('Location: /phpmotors/');
 }
 
+if(isset($_SESSION['message'])){
+    $message = $_SESSION['message'];
+}
+
 if ($_SESSION['clientData']['clientLevel'] > 1) {
     $adminMessage = '
     <h2>Inventory Management</h2>
@@ -63,13 +67,6 @@ $classificationList .= '</select>';
     </header>
     <main>
         <h1>
-            <?php 
-                // if (isset($invInfo['invMake']) && isset($invInfo['invModel'])) {
-                //     echo "Modify $invInfo[invMake] $invInfo[invModel]";
-                // } elseif (isset($invMake) && isset($invModel)) {
-                //     echo "Modify$invMake $invModel";
-                // }
-            ?>
             Manage Account
         </h1>
 
@@ -84,18 +81,39 @@ $classificationList .= '</select>';
 
         <form action="/phpmotors/accounts/" method="post">
             <label for="fName"><span>*</span><strong>First Name:</strong></label><br>
-            <input type="text" id="fName" name="clientFirstname" required value='<?php echo $_SESSION['clientData']['clientFirstname'];  ?>'><br>
+            <input type="text" id="fName" name="clientFirstname" required 
+            <?php 
+                if(isset($clientFirstname)){
+                    echo "value='$clientFirstname'";
+                }else{
+                    echo "value='{$_SESSION['clientData']['clientFirstname']}'";
+                } 
+            ?>><br>
 
             <label for="lname"><span>*</span><strong>Last Name:</strong></label><br>
-            <input type="text" id="lname" name="clientLastname" required value='<?php echo $_SESSION['clientData']['clientLastname'];  ?>'><br>
+            <input type="text" id="lname" name="clientLastname" required
+            <?php 
+                if(isset($clientLastname)){
+                    echo "value='$clientLastname'";
+                }else{
+                    echo "value='{$_SESSION['clientData']['clientLastname']}'";
+                } 
+            ?>><br>
 
             <label for="email"><span>*</span><strong>Email:</strong></label><br>
-            <input type="email" id="email" name="clientEmail" required value='<?php echo $_SESSION['clientData']['clientEmail'];  ?>'><br>
+            <input type="email" id="email" name="clientEmail" required 
+            <?php 
+                if(isset($clientEmail)){
+                    echo "value='$clientEmail'";
+                }else{
+                    echo "value='{$_SESSION['clientData']['clientEmail']}'";
+                } 
+            ?>><br>
 
             <input type="submit" name="submit" id="submitBtn" value="Update Account">
 
             <input type="hidden" name="action" value="updateAccount">
-            <input type="hidden" name="invId" value=" 
+            <input type="hidden" name="clientId" value=" 
             <?php echo $_SESSION['clientData']['clientId']
             ?>
             ">
@@ -112,7 +130,7 @@ $classificationList .= '</select>';
             <input type="submit" name="submit" id="submittn" value="Update Password">
 
             <input type="hidden" name="action" value="updatePassword">
-            <input type="hidden" name="invId" value=" 
+            <input type="hidden" name="clientId" value=" 
             <?php echo $_SESSION['clientData']['clientId']
             ?>
             ">

@@ -48,9 +48,6 @@ nav ul li a{
     color: #FFFFFF;
 }
 
-li:hover{
-    background-color: #4c96d7;
-}
 
 nav a:visited{
     color: inherit;
@@ -157,3 +154,10 @@ footer{
 }
 
 
+a{
+    color: #3577b1;
+}
+
+.manageVeh{
+    list-style-type: none;
+}

@@ -93,4 +93,55 @@ function getClient($clientEmail){
     return $clientData;
 }
 
+function updateAccount($clientFirstname, $clientLastname, $clientEmail, $clientId){
+    // Create a connection object using the phpmotors connection function
+    $db = phpmotorsConnect();
+    $sql = 'UPDATE
+                clients
+            SET
+                clientFirstname = :clientFirstname,
+                clientLastname  = :clientLastname,
+                clientEmail     = :clientEmail
+            WHERE
+                clientId      = :clientId';
+    
+    $stmt = $db->prepare($sql);
+    
+    $stmt->bindValue(':clientFirstname', $clientFirstname, PDO::PARAM_STR);
+    $stmt->bindValue(':clientLastname',  $clientLastname,  PDO::PARAM_STR);
+    $stmt->bindValue(':clientEmail',     $clientEmail,     PDO::PARAM_STR);
+    $stmt->bindValue(':clientId',        $clientId,        PDO::PARAM_STR);
+
+    $stmt->execute();
+
+    $rowsChanged = $stmt->rowCount();
+    $stmt->closeCursor();
+
+    return $rowsChanged;
+}
+
+function updatePassword($clientPassword, $clientId){
+    $db = phpmotorsConnect();
+echo "password: ", $clientPassword;
+echo "Id: ", $clientId;
+    $sql = 'UPDATE
+                clients
+            SET
+                clientPassword = :clientPassword
+            WHERE
+                clientId       = :clientId';
+
+    $stmt = $db->prepare($sql);
+
+    $stmt->bindValue(':clientPassword', $clientPassword, PDO::PARAM_STR);
+    $stmt->bindValue(':clientId',       $clientId,       PDO::PARAM_STR);
+
+    $stmt->execute();
+
+    $rowsChanged = $stmt->rowCount();
+    
+    $stmt->closeCursor();
+
+    return $rowsChanged;
+}
 ?>

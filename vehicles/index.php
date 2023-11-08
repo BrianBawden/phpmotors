@@ -249,7 +249,7 @@ switch($action){
       
     }
     if($updateResult){
-      $message = "<p class='notify'>Congratulations, the $invMake $invModel was successfully updated.</p>";
+      $message = "<p class='notify' id='successMsg'>Congratulations, the $invMake $invModel was successfully updated.</p>";
       $_SESSION['message'] = $message;
       header('location: /phpmotors/vehicles/');
       exit;
