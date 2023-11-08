@@ -117,19 +117,18 @@ switch ($action){
     $clientEmail      = trim(filter_input(INPUT_POST, 'clientEmail', FILTER_SANITIZE_EMAIL));
     $clientId         = trim(filter_input(INPUT_POST, 'clientId', FILTER_SANITIZE_NUMBER_INT));
    
-    $clientEmail      = checkEmail($clientEmail);
+    $validEmail      = checkEmail($clientEmail);
     $checkClientEmail = checkForDuplicateEmail($clientEmail);
-    if(empty($clientFirstname) || empty($clientLastname) || empty($clientEmail)){
+    if(empty($clientFirstname) || empty($clientLastname) || empty($validEmail)){
       $message = '<p id="errorMsg">Please provide information for all empty form fields.</p>';
       include '../view/account-update.php';
-      echo 1;
       exit; 
     }
     
     $updateAccount = updateAccount($clientFirstname, $clientLastname, $clientEmail, $clientId);
     if($updateAccount === 1){
       setcookie('firstname', $clientFirstname, strtotime('+1 year'), '/');
-      $_SESSION["message"] = "<p id='successMsg'>Thanks for updating <strong>$clientFirstname's<?strong> account.</p>";
+      $_SESSION["message"] = "<p id='successMsg'>Thanks for updating $clientFirstname account.</p>";
       header('Location: /phpmotors/accounts/?action=admin');
       $clientData = getClient($clientEmail); // array of client info that matches email.
       $_SESSION['clientData'] = $clientData;
@@ -162,7 +161,7 @@ switch ($action){
     $updatePassword = updatePassword($hashedPassword, $clientId);
 
     if($updatePassword === 1){
-      $_SESSION["message"] = "<p id='successMsg'>Thanks for updating <strong>$clientFirstname's<?strong> password.</p>";
+      $_SESSION["message"] = "<p id='successMsg'>Success, password for <strong>$clientFirstname<?strong> updated.</p>";
       header('Location: /phpmotors/accounts/?action=admin');
     }else{
       $_SESSION["message"] = "<p id='errorMsg'>Password update failed.</p>";
@@ -186,7 +185,7 @@ switch ($action){
     $checkClientEmail = checkForDuplicateEmail($clientEmail);
 
     if ($checkClientEmail){
-      $message = '<p id"successMsg">Email already exists. Login?';
+      $message = '<p id"errorMsg">Email already exists. Login?';
       include '../view/login.php';
       exit;
     }

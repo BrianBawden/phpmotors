@@ -1,12 +1,13 @@
 <?php
 
-if (2 > $_SESSION['clientData']['clientLevel'] || !$_SESSION['loggedin']) {
+if (!$_SESSION['loggedin']) {
     $message = '<p id=errorMsg>Access Denied!</p>';
     header('Location: /phpmotors/');
 }
 
 if(isset($_SESSION['message'])){
     $message = $_SESSION['message'];
+    $_SESSION['message'] = "";
 }
 
 if ($_SESSION['clientData']['clientLevel'] > 1) {

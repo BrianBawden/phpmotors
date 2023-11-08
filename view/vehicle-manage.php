@@ -6,6 +6,7 @@ if(2 > $_SESSION['clientData']['clientLevel'] || !$_SESSION['loggedin']){
 
 if (isset($_SESSION['message'])) {
     $message = $_SESSION['message'];
+    $_SESSION['message'] = '';
    }
 
 if($_SESSION['clientData']['clientLevel'] > 1){
