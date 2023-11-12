@@ -76,7 +76,7 @@ $classificationList .= '</select>';
 
         <form action="/phpmotors/accounts/" method="post">
             <label for="fName"><span>*</span><strong>First Name:</strong></label><br>
-            <input type="text" id="fName" name="clientFirstname" required 
+            <input type="text" id="fName" name="clientFirstname" required maxlength="15"
             <?php 
                 if(isset($clientFirstname)){
                     echo "value='$clientFirstname'";
@@ -86,7 +86,7 @@ $classificationList .= '</select>';
             ?>><br>
 
             <label for="lname"><span>*</span><strong>Last Name:</strong></label><br>
-            <input type="text" id="lname" name="clientLastname" required
+            <input type="text" id="lname" name="clientLastname" required maxlength="25"
             <?php 
                 if(isset($clientLastname)){
                     echo "value='$clientLastname'";
@@ -96,7 +96,7 @@ $classificationList .= '</select>';
             ?>><br>
 
             <label for="email"><span>*</span><strong>Email:</strong></label><br>
-            <input type="email" id="email" name="clientEmail" required 
+            <input type="email" id="email" name="clientEmail" required maxlength="40"
             <?php 
                 if(isset($clientEmail)){
                     echo "value='$clientEmail'";
@@ -120,7 +120,7 @@ $classificationList .= '</select>';
 
         <form action="/phpmotors/accounts/" method="post">
             <label for="password"><span>*</span><strong>Password:</strong></label><br>
-            <input type="password" id="password" name="clientPassword" required pattern="(?=^.{8,}$)(?=.*\d)(?=.*\W+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"><br>
+            <input type="password" id="password" name="clientPassword" required maxlength="255" pattern="(?=^.{8,}$)(?=.*\d)(?=.*\W+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"><br>
 
             <input type="submit" name="submit" id="submittn" value="Update Password">
 

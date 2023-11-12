@@ -20,6 +20,9 @@ require_once '../library/functions.php';
 require_once '../model/main-model.php';// Get the database connection file
 // Get the accounts model
 require_once '../model/accounts-model.php';
+// connect to model/vehicles-model.php
+require_once '../model/vehicles-model.php';
+
 
 
 // Get the array of classifications from the database.
@@ -119,7 +122,7 @@ switch ($action){
    
     $validEmail      = checkEmail($clientEmail);
     $checkClientEmail = checkForDuplicateEmail($clientEmail);
-    if(empty($clientFirstname) || empty($clientLastname) || empty($validEmail)){
+    if(empty($clientFirstname) || empty(maxLength($clientFirstname, 15)) || empty($clientLastname) ||empty(maxLength($clientLastname, 25)) ||empty(maxLength($validEmail, 40)) || empty($validEmail)){
       $_SESSION['message'] = '<p id="errorMsg">Please provide information for all empty form fields.</p>';
       include '../view/client-update.php';
       exit; 
@@ -150,7 +153,7 @@ switch ($action){
     
     $checkPassword = checkPassword($clientPassword);
     
-    if(empty($checkPassword)){
+    if(empty($checkPassword || empty(maxLength($checkPassword, 255)))){
       $_SESSION['message'] = '<p id="errorMsg">Please provide password with at least 8 characters and include: one upper case, one lower case, one special character, and one number.</p>';
       include '../view/client-update.php';
       exit; 
