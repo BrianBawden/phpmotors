@@ -47,6 +47,17 @@ switch($action){
     include '../view/add-vehicle.php';
   break;
 
+  case 'classification':
+    $classificationName = filter_input(INPUT_GET, 'classificationName', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+    $vehicles = getVehiclesByClassification($classificationName);
+    if(!count($vehicles)){
+      $message = "<p class='notice'>Sorry, no $classificationName vehicles could be found.</p>";
+    } else {
+      $vehicleDisplay = buildVehiclesDisplay($vehicles);
+    }
+    include '../view/classification.php';
+  break;
+
   case 'add-classification':
     include '../view/add-classification.php';
   break;
