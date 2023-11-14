@@ -55,7 +55,21 @@ function buildClassificationList($classifications){
     } 
     $classificationList .= '</select>'; 
     return $classificationList; 
-   }
+}
 
+// dynamically build an html unordered list of vehicles 
+function buildVehiclesDisplay($vehicles){
+    $dv = '<ul id="inv-display">';
+    foreach ($vehicles as $vehicle) {
+     $dv .= '<li>';
+     $dv .= "<img src='$vehicle[invThumbnail]' alt='Image of $vehicle[invMake] $vehicle[invModel] on phpmotors.com'>";
+     $dv .= '<hr>';
+     $dv .= "<h2>$vehicle[invMake] $vehicle[invModel]</h2>";
+     $dv .= "<span>$vehicle[invPrice]</span>";
+     $dv .= '</li>';
+    }
+    $dv .= '</ul>';
+    return $dv;
+}
 
 ?>
