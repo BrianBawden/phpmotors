@@ -61,10 +61,12 @@ function buildClassificationList($classifications){
 function buildVehiclesDisplay($vehicles){
     $dv = '<ul id="inv-display">';
     foreach ($vehicles as $vehicle) {
+     $dollars = number_format($vehicle['invPrice'], 2, '.', ',');
      $dv .= '<li>';
-     $dv .= "<img src='$vehicle[invThumbnail]' alt='Image of $vehicle[invMake] $vehicle[invModel] on phpmotors.com'>";
+     $dv .= "<a href='/phpmotors/vehicles/?action=vehDetail&vehId="
+     .urlencode($vehicle['invId'])."' title='View our $vehicle[invMake] $vehicle[invModel]'><img src='$vehicle[invThumbnail]' alt='Image of $vehicle[invMake] $vehicle[invModel] on phpmotors.com'></a>";
      $dv .= "<h2>$vehicle[invMake] $vehicle[invModel]</h2>";
-     $dv .= "<span class='vehPrice'>$$vehicle[invPrice]</span>";
+     $dv .= "<span class='vehPrice'>$$dollars</span>";
      $dv .= '</li>';
     }
     $dv .= '</ul>';

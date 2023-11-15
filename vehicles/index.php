@@ -58,6 +58,13 @@ switch($action){
     include '../view/classification.php';
   break;
 
+  case 'vehDetail':
+    $vehId = filter_input(INPUT_GET, 'vehId', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+    echo $vehName;
+    exit;
+    include '../view/500.php';
+  break;
+
   case 'add-classification':
     include '../view/add-classification.php';
   break;
