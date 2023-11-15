@@ -127,7 +127,7 @@ switch ($action){
       include '../view/client-update.php';
       exit; 
     }
-    
+
     $updateAccount = updateAccount($clientFirstname, $clientLastname, $clientEmail, $clientId);
     if($updateAccount === 1){
       setcookie('firstname', $clientFirstname, strtotime('+1 year'), '/');
@@ -141,7 +141,7 @@ switch ($action){
       exit;
     }else{
       $_SESSION["message"] = "<p id='errorMsg'>Update failed, please try again.</p>";
-      include '/phpmotors/accounts/?action=client-update';
+      include '../view/client-update.php';
       exit;
     }
 
