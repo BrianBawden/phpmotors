@@ -59,10 +59,14 @@ switch($action){
   break;
 
   case 'vehDetail':
-    $vehId = filter_input(INPUT_GET, 'vehId', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-    echo $vehName;
-    exit;
-    include '../view/500.php';
+    $invId = filter_input(INPUT_GET, 'invId', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+    $vehicle = getInvItemInfo($invId);
+    if(!$vehicle){
+      $message = "<p class='notice'>Sorry, no $invMake $invModel vehicle could be found.</p>";
+    } else {
+    $vehicleDisplay = buildVehiclePage($vehicle);
+    }
+    include '../view/vehicle.php';
   break;
 
   case 'add-classification':
