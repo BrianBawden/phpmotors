@@ -65,7 +65,8 @@ function buildVehiclesDisplay($vehicles){
      $dv .= '<li>';
      $dv .= "<a href='/phpmotors/vehicles/?action=vehDetail&invId="
      .urlencode($vehicle['invId'])."' title='View our $vehicle[invMake] $vehicle[invModel]'><img src='$vehicle[invThumbnail]' alt='Image of $vehicle[invMake] $vehicle[invModel] on phpmotors.com'></a>";
-     $dv .= "<h2>$vehicle[invMake] $vehicle[invModel]</h2>";
+     $dv .= "<a href='/phpmotors/vehicles/?action=vehDetail&invId="
+     .urlencode($vehicle['invId'])."' title='View our $vehicle[invMake] $vehicle[invModel]'><h2>$vehicle[invMake] $vehicle[invModel]</h2></a>";
      $dv .= "<span class='vehPrice'>$$dollars</span>";
      $dv .= '</li>';
     }
