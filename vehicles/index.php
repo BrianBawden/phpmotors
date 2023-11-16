@@ -62,7 +62,7 @@ switch($action){
     $invId = filter_input(INPUT_GET, 'invId', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
     $vehicle = getInvItemInfo($invId);
     if(!$vehicle){
-      $message = "<p class='notice'>Sorry, no $invMake $invModel vehicle could be found.</p>";
+      $message = "<p id='errorMsg'>Sorry, no $invMake $invModel vehicle could be found.</p>";
     } else {
     $vehicleDisplay = buildVehiclePage($vehicle);
     }

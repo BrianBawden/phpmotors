@@ -83,7 +83,7 @@ function buildVehiclePage($vehicle){
     $dv .= "<p class='veh-display'>$vehicle[invDescription]</p>";
     $dv .= "<p class='veh-display'>Color: $vehicle[invColor]</p>";
     $dv .= "<p class='veh-display'>In Stock: $vehicle[invStock]</p>";
-    $dv .= "<p class='veh-display'>Price: $$dollars</p>";
+    $dv .= "<p class='veh-display'>Price: <span class='price'>$$dollars</span></p>";
     $dv .= "</div>";
 
      return $dv;

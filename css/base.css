@@ -186,6 +186,11 @@ hr{
 #veh-display p{
     font-weight: bold;
 }
+
+.price{
+    color: #4c96d7;
+}
+
 footer{
     text-align: center;
     font-size: .75rem;
