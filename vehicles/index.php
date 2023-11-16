@@ -66,7 +66,7 @@ switch($action){
     } else {
     $vehicleDisplay = buildVehiclePage($vehicle);
     }
-    include '../view/vehicle.php';
+    include '../view/vehicle-detail.php';
   break;
 
   case 'add-classification':

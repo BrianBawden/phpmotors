@@ -1,15 +1,14 @@
 
 html{
     box-sizing: border-box;
-   }
+}
    
-   *, *:before, *:after{
+*, *:before, *:after{
     box-sizing: inherit;
-   }
+}
 
 body{
-    font-family: 'Comic Neue', cursive;
-    
+    font-family: 'Comic Neue', cursive;   
 }
 /* HEADER CSS */
 
@@ -56,7 +55,6 @@ nav ul li a{
     color: #FFFFFF;
 }
 
-
 nav a:visited{
     color: inherit;
 }
@@ -65,7 +63,7 @@ a {
     text-decoration: inherit;
 }
 
-/* .plain_link class is for links that I want to control the apperance. */
+/* .plain_link class is for links that I want to control the appearance. */
 .plain_link{
     text-decoration: none;
     color:#3577b1;
@@ -156,28 +154,38 @@ hr{
     border: solid .1rem #8d8d8d;
 }
 
+/* CSS for vehicle display by class */
 #inv-display{
     margin: 0;
     padding: 0;
     display: flex;
     flex-direction: column;
-   }
+}
    
-   #inv-display li{
+#inv-display li{
     margin-bottom: .5em;
     border: 1px #ccc solid;
     list-style-type: none;
     flex: 1 1 auto;
-   }
+}
    
-   #inv-display li img {
+#inv-display li img {
        max-width: 100%;
-   }
+}
 
-   .vehPrice{
+.vehPrice{
     border-top: solid .5rem #363333;
-   }
+}
 
+/* vehicle detail display */
+#veh-display{
+    display: flex;
+    flex-direction: column;
+}
+
+#veh-display p{
+    font-weight: bold;
+}
 footer{
     text-align: center;
     font-size: .75rem;

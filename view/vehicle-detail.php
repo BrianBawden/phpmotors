@@ -21,10 +21,15 @@
         <?php 
             if(isset($message)){
                 echo $message; }
-            if(isset($vehicleDisplay)){
-                echo $vehicleDisplay;
-                }
         ?>
+        <div id="veh-display">
+            <?php
+                if(isset($vehicleDisplay)){
+                    echo $vehicleDisplay;
+                    }
+            ?>
+        </div>
+       
     </main>
     <footer>
         <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/common/footer.php'; ?>
