@@ -67,22 +67,22 @@
     
     /* vehicle detail display */
     
-    .veh-display{
+    #veh-display{
         flex-direction: row;
         flex-wrap: wrap;
     }
     
-    .veh-display h1{
+    #veh-display h1{
         width: 100%;
     }
     
-    .veh-display img{
-        width: 48%;
+    #veh-display img{
+        width: 60%;
     }
-    .veh-display .veh-detail{
+    .veh-detail{
         display: flex;
         flex-direction: column;
-        width: 48%;
+        width: 40%;
         padding: 1rem;
     }
     
