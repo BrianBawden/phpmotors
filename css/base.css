@@ -188,7 +188,9 @@ hr{
 }
 
 .price{
-    color: #4c96d7;
+    font-size: x-large;
+    background-color: #3577b1;
+    color: #FFFFFF;
 }
 
 footer{
