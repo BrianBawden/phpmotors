@@ -65,5 +65,4 @@ function checkExistingImage($imgName){
   return $imageMatch;
 }
 
-
 ?>
