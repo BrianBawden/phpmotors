@@ -244,7 +244,10 @@ WHERE
         carclassification
     WHERE
         classificationName = :classificationName
-) AND images.imgPath LIKE "%-tn%"';
+    ) 
+    AND images.imgPath LIKE "%-tn%"
+    AND images.imgPrimary = 1;
+';
     $stmt = $db->prepare($sql);
     $stmt->bindValue(':classificationName', $classificationName, PDO::PARAM_STR);
     $stmt->execute();
