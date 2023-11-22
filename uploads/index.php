@@ -26,7 +26,7 @@ if ($action == NULL) {
 // directory name where uploaded images are stored
 $image_dir = '/phpmotors/images/vehicles';
 // The path is the full path from the server root
-$image_dir_path = $_SERVER['DOCUMENT_ROOT'] . $image_dir;
+$image_dir_path = $_SERVER['DOCUMENT_ROOT'] . $image_dir; // = /Applications/XAMPP/xamppfiles/htdocs/phpmotors/images/vehicles
 
 
 switch ($action) {
@@ -34,18 +34,18 @@ switch ($action) {
   case 'upload':
 
     // Store the incoming vehicle id and primary picture indicator
-    $invId = filter_input(INPUT_POST, 'invId', FILTER_VALIDATE_INT);
-    $imgPrimary = filter_input(INPUT_POST, 'imgPrimary', FILTER_VALIDATE_INT);
+    $invId = filter_input(INPUT_POST, 'invId', FILTER_VALIDATE_INT); // returns the invId of the vehicle selected by the image-admin.php
+    $imgPrimary = filter_input(INPUT_POST, 'imgPrimary', FILTER_VALIDATE_INT); // returns a 1 or 0 if image is primary or not
     
     // Store the name of the uploaded image
-    $imgName = $_FILES['file1']['name'];
-          
+    $imgName = $_FILES['file1']['name']; // returns name of file.
+
     $imageCheck = checkExistingImage($imgName);
           
     if($imageCheck){
-      $message = '<p class="errorMsg">An image by that name already exists.</p>';
+      $message = '<p id="errorMsg">An image by that name already exists.</p>';
     } elseif (empty($invId) || empty($imgName)) {
-      $message = '<p class="errorMsg">You must select a vehicle and image file for the vehicle.</p>';
+      $message = '<p id="errorMsg">You must select a vehicle and image file for the vehicle.</p>';
     } else {
       // Upload the image, store the returned path to the file
       $imgPath = uploadFile('file1');
@@ -55,9 +55,9 @@ switch ($action) {
           
       // Set a message based on the insert result
       if ($result) {
-      $message = '<p class="successMsg">The upload succeeded.</p>';
+      $message = '<p id="successMsg">The upload succeeded.</p>';
       } else {
-      $message = '<p class="errorMsg">Sorry, the upload failed.</p>';
+      $message = '<p id="errorMsg">Sorry, the upload failed.</p>';
       }
     }
           

@@ -139,11 +139,13 @@ function uploadFile($name) {
       return;
      }
     // Get the file from the temp folder on the server
-    $source = $_FILES[$name]['tmp_name'];
+    $source = $_FILES[$name]['tmp_name']; // /Applications/XAMPP/xamppfiles/temp/phpm5xS2X 
+
     // Sets the new path - images folder in this directory
-    $target = $image_dir_path . '/' . $filename;
+    $target = $image_dir_path . '/' . $filename; // /Applications/XAMPP/xamppfiles/htdocs/phpmotors/images/vehicles/lambo-Adve.jpg
     // Moves the file to the target folder
     move_uploaded_file($source, $target);
+
     // Send file for further processing
     processImage($image_dir_path, $filename);
     // Sets the path for the image for Database storage
