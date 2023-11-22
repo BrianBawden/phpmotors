@@ -64,7 +64,7 @@ function buildVehiclesDisplay($vehicles){
      $dollars = number_format($vehicle['invPrice'], 2, '.', ',');
      $dv .= '<li>';
      $dv .= "<a href='/phpmotors/vehicles/?action=vehDetail&invId="
-     .urlencode($vehicle['invId'])."' title='View our $vehicle[invMake] $vehicle[invModel]'><img src='$vehicle[invThumbnail]' alt='Image of $vehicle[invMake] $vehicle[invModel] on phpmotors.com'></a>";
+     .urlencode($vehicle['invId'])."' title='View our $vehicle[invMake] $vehicle[invModel]'><img src='$vehicle[imgPath]' alt='Image of $vehicle[invMake] $vehicle[invModel] on phpmotors.com'></a>";
      $dv .= "<a href='/phpmotors/vehicles/?action=vehDetail&invId="
      .urlencode($vehicle['invId'])."' title='View our $vehicle[invMake] $vehicle[invModel]'><h2>$vehicle[invMake] $vehicle[invModel]</h2></a>";
      $dv .= "<span class='vehPrice'>$$dollars</span>";
