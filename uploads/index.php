@@ -12,7 +12,7 @@ require_once '../model/uploads-model.php';
 // Get the array of classifications
 $classifications = getClassifications();
 // Build a navigation bar using the $classifications array
-$navList = buildNavigation($classifications);
+$navList = navList($classifications);
 
 // Get post/get from action value from the browser.
 $action = filter_input(INPUT_POST, 'action', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
@@ -105,7 +105,6 @@ switch ($action) {
   break;
 
   default:
-
     // Call function to return image info from database
     $imageArray = getImages();
           
