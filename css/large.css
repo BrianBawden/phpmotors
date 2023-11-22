@@ -78,6 +78,7 @@
     
     #veh-display img{
         width: 60%;
+        height: fit-content;
     }
     .veh-detail{
         display: flex;
