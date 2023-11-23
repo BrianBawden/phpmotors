@@ -29,7 +29,6 @@ function insertNewClassification($classificationName){
     return $rowsChanged;
 }
 
-
 // Add new vehicle to phpmotors database. primary key auto assigned. 
 function insertNewVehicle(
     $invMake,
@@ -214,40 +213,35 @@ function deleteVehicle($invId){
 
 }
 
-
-// 'SELECT * FROM inventory WHERE classificationId IN (SELECT classificationId FROM carclassification WHERE classificationName = :classificationName)';
-
-
-
 // Retrieve list of vehicles based on classification.
 function getVehiclesByClassification($classificationName){
     $db = phpmotorsConnect();
     $sql = 'SELECT
-    inventory.invId,
-    invMake,
-    invModel,
-    invDescription,
-    invImage,
-    images.imgPath,
-    invPrice,
-    invStock,
-    invColor,
-    classificationId
-FROM
-    inventory
-JOIN images ON inventory.invId = images.invId
-WHERE
-    classificationId IN(
-    SELECT
+        inventory.invId,
+        invMake,
+        invModel,
+        invDescription,
+        invImage,
+        images.imgPath,
+        invPrice,
+        invStock,
+        invColor,
         classificationId
     FROM
-        carclassification
+        inventory
+    JOIN images ON inventory.invId = images.invId
     WHERE
-        classificationName = :classificationName
-    ) 
-    AND images.imgPath LIKE "%-tn%"
-    AND images.imgPrimary = 1;
-';
+        classificationId IN(
+        SELECT
+            classificationId
+        FROM
+            carclassification
+        WHERE
+            classificationName = :classificationName
+        ) 
+        AND images.imgPath LIKE "%-tn%"
+        AND images.imgPrimary = 1;
+    ';
     $stmt = $db->prepare($sql);
     $stmt->bindValue(':classificationName', $classificationName, PDO::PARAM_STR);
     $stmt->execute();
