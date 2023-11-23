@@ -198,6 +198,19 @@ hr{
     max-width: 20rem;
 }
 
+#thumb-display{
+    display: flex;
+    gap: .5rem;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+#thumb-display img{
+    width: 40%;
+}
+
+/***** footer *******/
+
 footer{
     text-align: center;
     font-size: .75rem;

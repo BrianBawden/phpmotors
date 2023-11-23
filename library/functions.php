@@ -74,10 +74,10 @@ function buildVehiclesDisplay($vehicles){
     return $dv;
 }
 
-function buildVehiclePage($vehicle, $thumbnails){
+function buildVehiclePage($vehicle, $thumbs){
     $dollars = number_format($vehicle['invPrice'], 2, '.', ',');
     $dv = "<h1 class='veh-display'>$vehicle[invMake] $vehicle[invModel]</h1>";
-    $dv .= "<img class='veh-display' src ='$vehicle[invImage]' alt='Image of $vehicle[invMake] $vehicle[invModel]'>";
+    $dv .= "<img class='veh-display' id='veh-img' src ='$vehicle[invImage]' alt='Image of $vehicle[invMake] $vehicle[invModel]'>";
     $dv .= "<div class='veh-detail'>";
     $dv .= "<h2 class='veh-display'>$vehicle[invMake] $vehicle[invModel] Details:</h2>";
     $dv .= "<p class='veh-display'>$vehicle[invDescription]</p>";
@@ -85,12 +85,21 @@ function buildVehiclePage($vehicle, $thumbnails){
     $dv .= "<p class='veh-display'>In Stock: $vehicle[invStock]</p>";
     $dv .= "<p class='veh-display'>Price: <span class='price'>$$dollars</span></p>";
     $dv .= "</div>";
-    foreach($thumbnails as $thumbnail){
-        $dv .= "<img class='veh-display veh-thumbnail' src='$thumbnail[imgPath]' alt='Image of $vehicle[invMake] $vehicle[invModel]'>";
-    }
-
+    $dv .= "<div id='thumb-display'>";
+    $dv .= $thumbs;
+    $dv .= "</div>";
      return $dv;
 }
+
+function addThumbnails($vehicle, $thumbnails){
+    $thumb = '';
+    foreach($thumbnails as $thumbnail){
+        $thumb .= "<img class='veh-display veh-thumbnail' src='$thumbnail[imgPath]' alt='Image of $vehicle[invMake] $vehicle[invModel]'>";
+    }
+    return $thumb;
+}
+
+
 
 
 /* * ********************************

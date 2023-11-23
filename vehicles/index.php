@@ -64,10 +64,11 @@ switch($action){
     $invId = filter_input(INPUT_GET, 'invId', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
     $vehicle = getInvItemInfo($invId);
     $thumbnails = getThumbnailImg($invId);
+    $thumbs = addThumbnails($vehicle, $thumbnails);
     if(!$vehicle){
       $message = "<p id='errorMsg'>Sorry, no $invMake $invModel vehicle could be found.</p>";
     } else {
-    $vehicleDisplay = buildVehiclePage($vehicle, $thumbnails);
+    $vehicleDisplay = buildVehiclePage($vehicle, $thumbs);
     }
     include '../view/vehicle-detail.php';
   break;
