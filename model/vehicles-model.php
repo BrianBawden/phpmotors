@@ -111,7 +111,22 @@ function getInventoryByClassification($classificationId){
 // Get vehicle information by invId
 function getInvItemInfo($invId){
     $db = phpmotorsConnect();
-    $sql = 'SELECT * FROM inventory WHERE invId = :invId';
+    $sql = 
+        'SELECT
+            inventory.invId,
+            invMake,
+            invModel,
+            invDescription,
+            images.imgPath as invImage,
+            invPrice,
+            invStock,
+            invColor,
+            classificationId
+        FROM
+            inventory
+        JOIN images ON inventory.invId = images.invId 
+        WHERE inventory.invId = :invId
+        AND images.imgPath NOT LIKE "%-tn%"';
     $stmt = $db->prepare($sql);
     $stmt->bindValue(':invId', $invId, PDO::PARAM_INT);
     $stmt->execute();
@@ -216,32 +231,33 @@ function deleteVehicle($invId){
 // Retrieve list of vehicles based on classification.
 function getVehiclesByClassification($classificationName){
     $db = phpmotorsConnect();
-    $sql = 'SELECT
-        inventory.invId,
-        invMake,
-        invModel,
-        invDescription,
-        invImage,
-        images.imgPath,
-        invPrice,
-        invStock,
-        invColor,
-        classificationId
-    FROM
-        inventory
-    JOIN images ON inventory.invId = images.invId
-    WHERE
-        classificationId IN(
-        SELECT
+    $sql = 
+        'SELECT
+            inventory.invId,
+            invMake,
+            invModel,
+            invDescription,
+            invImage,
+            images.imgPath,
+            invPrice,
+            invStock,
+            invColor,
             classificationId
         FROM
-            carclassification
+            inventory
+        JOIN images ON inventory.invId = images.invId
         WHERE
-            classificationName = :classificationName
-        ) 
-        AND images.imgPath LIKE "%-tn%"
-        AND images.imgPrimary = 1;
-    ';
+            classificationId IN(
+            SELECT
+                classificationId
+            FROM
+                carclassification
+            WHERE
+                classificationName = :classificationName
+            ) 
+            AND images.imgPath LIKE "%-tn%"
+            AND images.imgPrimary = 1;
+        ';
     $stmt = $db->prepare($sql);
     $stmt->bindValue(':classificationName', $classificationName, PDO::PARAM_STR);
     $stmt->execute();

@@ -19,6 +19,8 @@ require_once '../library/functions.php';
 require_once '../model/main-model.php';
 // connect to model/vehicles-model.php
 require_once '../model/vehicles-model.php';
+// connect to model/uploads-model.php
+require_once '../model/uploads-model.php';
 
 $classifications = GetClassifications();
 // Test connection to db: passed
@@ -61,10 +63,11 @@ switch($action){
   case 'vehDetail':
     $invId = filter_input(INPUT_GET, 'invId', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
     $vehicle = getInvItemInfo($invId);
+    $thumbnails = getThumbnailImg($invId);
     if(!$vehicle){
       $message = "<p id='errorMsg'>Sorry, no $invMake $invModel vehicle could be found.</p>";
     } else {
-    $vehicleDisplay = buildVehiclePage($vehicle);
+    $vehicleDisplay = buildVehiclePage($vehicle, $thumbnails);
     }
     include '../view/vehicle-detail.php';
   break;

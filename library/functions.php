@@ -74,7 +74,7 @@ function buildVehiclesDisplay($vehicles){
     return $dv;
 }
 
-function buildVehiclePage($vehicle){
+function buildVehiclePage($vehicle, $thumbnails){
     $dollars = number_format($vehicle['invPrice'], 2, '.', ',');
     $dv = "<h1 class='veh-display'>$vehicle[invMake] $vehicle[invModel]</h1>";
     $dv .= "<img class='veh-display' src ='$vehicle[invImage]' alt='Image of $vehicle[invMake] $vehicle[invModel]'>";
@@ -85,6 +85,9 @@ function buildVehiclePage($vehicle){
     $dv .= "<p class='veh-display'>In Stock: $vehicle[invStock]</p>";
     $dv .= "<p class='veh-display'>Price: <span class='price'>$$dollars</span></p>";
     $dv .= "</div>";
+    foreach($thumbnails as $thumbnail){
+        $dv .= "<img class='veh-display veh-thumbnail' src='$thumbnail[imgPath]' alt='Image of $vehicle[invMake] $vehicle[invModel]'>";
+    }
 
      return $dv;
 }
