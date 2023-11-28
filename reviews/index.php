@@ -18,6 +18,8 @@ require_once '../model/main-model.php';// Get the database connection file
 require_once '../model/accounts-model.php';
 // connect to model/vehicles-model.php
 require_once '../model/vehicles-model.php';
+// connect to model/reviews-model.php
+require_once '../model/reviews-model.php';
 
 // Get the array of classifications from the database for the navbar.
 $classifications = getClassifications();
