@@ -5,8 +5,27 @@ function insertReview(){
 
 }
 
-function invItemReview(){
+function invItemReview($invId){
+  $db = phpmotorsConnect();
 
+  $sql = 
+    'SELECT 
+      reviewDate,
+      reviewText,
+      clients.clientFirstname as fname,
+      clients.clientLastname as lname
+    FROM
+      reviews
+    JOIN
+      clients on reviews.clientId = clients.clientId
+    WHERE
+      invId == :invId';
+  $stmt = $db ->prepare($sql);
+  $stmt->bindValue(':ivId', $invId, PDO::PARAM_INT);
+  $stmt->execute();
+  $reviewInfo = $stmt->fetch(PDO::FETCH_ASSOC);
+  $stmt->closeCursor();
+  return $reviewInfo;
 }
 
 function clientReviews(){
