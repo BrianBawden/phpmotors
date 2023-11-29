@@ -21,6 +21,8 @@ require_once '../model/main-model.php';
 require_once '../model/vehicles-model.php';
 // connect to model/uploads-model.php
 require_once '../model/uploads-model.php';
+// connect to model/reviews-model.php
+require_once '../model/reviews-model.php';
 
 $classifications = GetClassifications();
 // Test connection to db: passed
@@ -61,17 +63,20 @@ switch($action){
   break;
 
   case 'vehDetail':
+    
     $invId = filter_input(INPUT_GET, 'invId', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
     $vehicle = getInvItemInfo($invId);
+    $getReviews = invItemReview($invId);
     $thumbnails = getThumbnailImg($invId);
     $thumbs = addThumbnails($vehicle, $thumbnails);
     if(!$vehicle){
       $message = "<p id='errorMsg'>Sorry, no $invMake $invModel vehicle could be found.</p>";
     } else {
-    $vehicleDisplay = buildVehiclePage($vehicle, $thumbs);
+      $vehicleDisplay = buildVehiclePage($vehicle, $thumbs);
     }
+    $reviewDisplay = buildVehicleReview($getReviews);
     include '../view/vehicle-detail.php';
-  break;
+    break;
 
   case 'add-classification':
     include '../view/add-classification.php';

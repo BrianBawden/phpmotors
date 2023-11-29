@@ -22,11 +22,23 @@
             if(isset($message)){
                 echo $message; }
         ?>
+        <p>Vehicle <a href="#">reviews</a></p>
         <div id="veh-display">
             <?php
                 if(isset($vehicleDisplay)){
                     echo $vehicleDisplay;
                     }
+            ?>
+        </div>
+        <div id="reviews">
+            <hr>
+            <h2>Reviews</h2><br>
+            <?php
+                if(isset($reviewDisplay)){
+                    echo $reviewDisplay;
+                }else{
+                    echo "No reviews.";
+                }
             ?>
         </div>
        

@@ -99,11 +99,28 @@ function addThumbnails($vehicle, $thumbnails){
     return $thumb;
 }
 
+/* * ********************************
+*  Functions for working with reviews  *
+* ********************************* */
+
+
+function buildVehicleReview($getReviews){
+    $dv = "";
+    foreach($getReviews as $review) {
+    // echo json_encode($review['fname']);
+        $dv .= "<p class='reviewName'>By: $review[fname] $review[lname]<br> Date: $review[reviewDate]</p>";
+        $dv .= "<p class='reviewText'>Review: <br>$review[reviewText]</p>";
+        $dv .= "<hr>";
+    }
+    // echo $dv; exit;
+    return $dv;
+}
+
 
 
 
 /* * ********************************
-*  Functions for working with images
+*  Functions for working with images  *
 * ********************************* */
 
 // Adds "-tn" designation to file name

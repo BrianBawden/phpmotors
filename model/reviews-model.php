@@ -7,7 +7,6 @@ function insertReview(){
 
 function invItemReview($invId){
   $db = phpmotorsConnect();
-
   $sql = 
     'SELECT 
       reviewDate,
@@ -19,11 +18,11 @@ function invItemReview($invId){
     JOIN
       clients on reviews.clientId = clients.clientId
     WHERE
-      invId == :invId';
+      invId = :invId';
   $stmt = $db ->prepare($sql);
-  $stmt->bindValue(':ivId', $invId, PDO::PARAM_INT);
+  $stmt->bindValue(':invId', $invId, PDO::PARAM_INT);
   $stmt->execute();
-  $reviewInfo = $stmt->fetch(PDO::FETCH_ASSOC);
+  $reviewInfo = $stmt->fetchAll(PDO::FETCH_ASSOC);
   $stmt->closeCursor();
   return $reviewInfo;
 }
