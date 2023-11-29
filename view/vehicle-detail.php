@@ -22,7 +22,7 @@
             if(isset($message)){
                 echo $message; }
         ?>
-        <p>Vehicle <a href="#">reviews</a></p>
+        <p>Vehicle <a href="#reviews">reviews</a></p>
         <div id="veh-display">
             <?php
                 if(isset($vehicleDisplay)){
@@ -36,8 +36,6 @@
             <?php
                 if(isset($reviewDisplay)){
                     echo $reviewDisplay;
-                }else{
-                    echo "No reviews.";
                 }
             ?>
         </div>
