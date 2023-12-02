@@ -51,20 +51,37 @@ switch ($action){
     }
   break;
 
-  case 'newReview':
-    echo "newReview";
+  case 'viewReview':
+
+    $clientId = $_SESSION['clientData']['clientId'];
+    $getUserReviews = clientReviews($clientId);
+    $userReviews = buildVehicleReview($getUserReviews);
+    
+    include '../view/userReview.php';
   break;
 
-  case 'newReview':
-    echo "newReview";
+  case 'editReview':
+    $reviewId = filter_input(INPUT_GET, 'reviewId', FILTER_SANITIZE_NUMBER_INT);
+    $reviewText = filter_input(INPUT_GET, 'reviewText', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+    $editedRv = updateReview($reviewId, $reviewText);
   break;
 
-  case 'newReview':
-    echo "newReview";
+  case 'deleteReview':
+
+    $reviewId = filter_input(INPUT_GET, 'reviewId', FILTER_SANITIZE_NUMBER_INT);
+    $message = "Review Deleted";
+    deleteReview($reviewId);
+
+    header('location: /phpmotors/reviews/?action=viewReview');
   break;
 
-  case 'newReview':
-    echo "newReview";
+  case 'goToReview':
+    $reviewId = filter_input(INPUT_GET, 'reviewId', FILTER_SANITIZE_NUMBER_INT);
+    $selectReview = selectReview($reviewId);
+    $editDelReview = editDelReview($selectReview);
+    // echo $editDelReview; exit;
+    // header("location: ../view/changeRv.php");
+    include '../view/changeRv.php';
   break;
 
   default:

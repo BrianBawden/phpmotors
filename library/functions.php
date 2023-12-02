@@ -121,16 +121,39 @@ function buildAddReview($invId){
 function buildVehicleReview($getReviews){
     $dv = "";
     foreach($getReviews as $review) {
-    // echo json_encode($review['fname']);
-        $dv .= "<p class='reviewName'>By: $review[fname] $review[lname]<br> Date: $review[reviewDate]</p>";
+        $dv .= "<p class='reviewName'>By: $review[Make] $review[Model]<br> Date: $review[reviewDate]</p>";
         $dv .= "<p class='reviewText'>Review: <br>$review[reviewText]</p>";
+        $dv .= "<p><a href='../reviews/?action=goToReview&reviewId=$review[reviewId]'>edit/delete</a></p>";
         $dv .= "<hr>";
     }
-    // echo $dv; exit;
     return $dv;
 }
 
+function buildUserReviews($getReviews){
+    $dv = "";
+    foreach($getReviews as $review) {
+    // echo json_encode($review['fname']);
+        $dv .= "<p class='vehicleName'>By: $review[fname] $review[lname]<br> Date: $review[reviewDate]</p>";
+        $dv .= "<p class='reviewText'>Review: <br>$review[reviewText]</p>";
+        $dv .= "<hr>";
+    }
+    return $dv;
+}
 
+function editDelReview($review){
+    $dv = "<p class='vehicleName'>Vehicle: $review[make] $review[model]<br> Date: $review[reviewDate]</p>";
+    $dv .= "<form method='post' action=../reviews?action=editReview&reviewId=$review[reviewId]>";
+    $dv .= "<label for='reviewText'>Your Review</label><br>";
+    $dv .= "<textarea id='reviewText' name='reviewText'>$review[reviewText]</textarea><br>";
+    $dv .= "<input type='submit' value='Edit Review'>";
+    $dv .= "<input type='hidden' name='action' value='editReview'";
+    $dv .= "<input type='hidden' name='reviewId' value='$review[reviewId]'";
+    $dv .= "</form>";
+    $dv .= "<p><a href='../reviews/?action=deleteReview&reviewId=$review[reviewId]'>Delete Review</a></p>";
+    $dv .= "<hr>";
+
+    return $dv;
+}
 
 
 /* * ********************************

@@ -10,6 +10,13 @@ $updateAccount = '
 <a href="../accounts?action=client-update">Update Account Information</a>
 ';
 
+$viewReviews = '
+<hr>
+<h2>View Reviews</h2>
+<p>Use this link to view your reviews.</p>
+<a href="../reviews?action=viewReview">View Reviews</a>
+';
+
 if(isset($_SESSION['message'])){
     $message = $_SESSION['message'];
     $_SESSION['message'] = '';
@@ -56,6 +63,7 @@ if($_SESSION['clientData']['clientLevel'] > 1){
             </ul>
             <?php 
             echo $updateAccount;
+            echo $viewReviews;
             if (isset($adminMessage)){
                  echo '<hr>', $adminMessage;
             }
