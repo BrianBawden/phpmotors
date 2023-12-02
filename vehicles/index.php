@@ -74,9 +74,10 @@ switch($action){
     } else {
       $vehicleDisplay = buildVehiclePage($vehicle, $thumbs);
     }
+    $buildAddReview = buildAddReview($invId);
     $reviewDisplay = buildVehicleReview($getReviews);
-    include '../view/vehicle-detail.php';
-    break;
+    include "../view/vehicle-detail.php";
+  break;
 
   case 'add-classification':
     include '../view/add-classification.php';

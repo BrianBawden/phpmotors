@@ -83,7 +83,7 @@ switch ($action){
     // A valid user exists, log them in
     $_SESSION['loggedin'] = TRUE;
     if (!isset($_SESSION['loggedin'])) {
-      $message = 'p id="errorMsg">Error with session logging in.</p>';
+      $message = '<p id="errorMsg">Error with session logging in.</p>';
       include '../view/login.php';
     }
     // Remove the password from the array

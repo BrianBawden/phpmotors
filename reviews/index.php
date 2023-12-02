@@ -36,7 +36,21 @@ if(isset($_SESSION['clientData'])){
 switch ($action){
 
   case 'newReview':
-    echo "newReview";
+    if($_SESSION['loggedin']){
+      // $invId = filter_input(INPUT_GET, 'invId', FILTER_SANITIZE_NUMBER_INT);
+      $invId = trim(filter_input(INPUT_POST, 'invId', FILTER_SANITIZE_NUMBER_INT));
+      $reviewText = trim(filter_input(INPUT_POST, 'reviewText', FILTER_SANITIZE_SPECIAL_CHARS));
+      $clientId = $_SESSION['clientData']['clientId'];
+
+      echo " text: ", $reviewText;
+      echo " invId: ", $invId;
+      echo " clientId: ", $clientId; exit;
+      
+      include '..view/vehicle-detail.php';
+    }else {
+      $message = '<p id="errorMsg">Login before leaving a review.</p>';
+      include '../view/login.php';
+    }
   break;
 
   case 'newReview':

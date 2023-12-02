@@ -99,9 +99,23 @@ function addThumbnails($vehicle, $thumbnails){
     return $thumb;
 }
 
-/* * ********************************
+/* *********************************
 *  Functions for working with reviews  *
 * ********************************* */
+
+function buildAddReview($invId){
+
+    $dv = '<form action="../reviews/index.php" method="post">';
+    $dv .= "<label for='invId' readonly>Reviewed Vehicle</label><br>";
+    $dv .= "<input class='hide' type='text' value='$invId' name='invId'>";
+    $dv .= '<textarea name="reviewText" cols="30" rows="10"></textarea><br>';
+    $dv .= '<input type="submit">';
+    $dv .= '<input type="hidden" name="action" value="newReview">';
+    // $dv .= "<input type='hidden' name='invId' value='10'";//$invId";
+    $dv .= '</form><hr>';
+
+    return $dv;
+}
 
 
 function buildVehicleReview($getReviews){

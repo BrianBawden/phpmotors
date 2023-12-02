@@ -177,7 +177,8 @@ hr{
     border-top: solid .5rem #363333;
 }
 
-/* vehicle detail display */
+/******** vehicle detail display *********/
+
 #veh-display{
     display: flex;
     flex-direction: column;
@@ -209,7 +210,13 @@ hr{
     width: 40%;
 }
 
-/***** footer *******/
+/******* review *********/
+
+.hide{
+    display: none;
+}
+
+/******* footer *********/
 
 footer{
     text-align: center;

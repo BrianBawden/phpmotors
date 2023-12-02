@@ -32,7 +32,17 @@
         </div>
         <div id="reviews">
             <hr>
-            <h2>Reviews</h2><br>
+            <h2>Reviews:</h2>
+            <p>add a <a href="../reviews/index.php?action=newReview">review</a></p>
+            <hr>
+            <div id="newReview hide">
+                <?php
+                    if(isset($buildAddReview)){
+                        echo $buildAddReview;
+                    }
+                ?>
+            </div>
+
             <?php
                 if(isset($reviewDisplay)){
                     echo $reviewDisplay;
@@ -44,7 +54,8 @@
     <footer>
         <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/phpmotors/common/footer.php'; ?>
     </footer>
-
+    <!-- <script src="../js/review.js"></script> -->
+    
 </body>
 
 </html>
