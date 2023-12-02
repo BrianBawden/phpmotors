@@ -42,11 +42,9 @@ switch ($action){
       $reviewText = trim(filter_input(INPUT_POST, 'reviewText', FILTER_SANITIZE_SPECIAL_CHARS));
       $clientId = $_SESSION['clientData']['clientId'];
 
-      echo " text: ", $reviewText;
-      echo " invId: ", $invId;
-      echo " clientId: ", $clientId; exit;
-      
-      include '..view/vehicle-detail.php';
+      insertReview($reviewText, $invId, $clientId);
+      echo "test";
+      header("location: ../vehicles/?action=vehDetail&invId=$invId");
     }else {
       $message = '<p id="errorMsg">Login before leaving a review.</p>';
       include '../view/login.php';

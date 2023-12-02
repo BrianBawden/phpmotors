@@ -2,6 +2,7 @@
 //reviews model
 
 function insertReview($reviewText, $invId, $clientId){
+  
   $db = phpmotorsConnect();
   $sql = 
     'INSERT INTO reviews (
