@@ -101,23 +101,24 @@ function selectReview($reviewId){
 }
 
 function updateReview($reviewId, $reviewText){
+  // echo $reviewId;
+  // echo "review: ", $reviewText;exit;
   $db = phpmotorsConnect();
-
   $sql = 
   "UPDATE
     reviews
   SET
-    reviewText = $reviewText
+   reviewText = :reviewText
   WHERE
     reviewId = :reviewId
   ";
-
   $stmt = $db ->prepare($sql);
-  $stmt -> bindValue(':reviewId', $reviewId, PDO::PARAM_STR);
+  $stmt -> bindValue(':reviewId', $reviewId, PDO::PARAM_INT);
+  $stmt -> bindValue(':reviewText', $reviewText, PDO::PARAM_STR);
   $stmt -> execute();
-  $editedReview = $stmt->fetch(PDO::FETCH_ASSOC);
+  $rowsChanged = $stmt->rowCount();
   $stmt->closeCursor();
-  return $editedReview;
+  return $rowsChanged;
 }
 
 function deleteReview($reviewId){

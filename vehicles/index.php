@@ -75,7 +75,7 @@ switch($action){
       $vehicleDisplay = buildVehiclePage($vehicle, $thumbs);
     }
     $buildAddReview = buildAddReview($invId);
-    $reviewDisplay = buildVehicleReview($getReviews);
+    $reviewDisplay = buildUserReviews($getReviews);
     include "../view/vehicle-detail.php";
   break;
 

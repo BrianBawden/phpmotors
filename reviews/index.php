@@ -64,6 +64,9 @@ switch ($action){
     $reviewId = filter_input(INPUT_GET, 'reviewId', FILTER_SANITIZE_NUMBER_INT);
     $reviewText = filter_input(INPUT_GET, 'reviewText', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
     $editedRv = updateReview($reviewId, $reviewText);
+
+    include '../view/userReview.php';
+
   break;
 
   case 'deleteReview':

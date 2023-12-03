@@ -121,7 +121,7 @@ function buildAddReview($invId){
 function buildVehicleReview($getReviews){
     $dv = "";
     foreach($getReviews as $review) {
-        $dv .= "<p class='reviewName'>By: $review[Make] $review[Model]<br> Date: $review[reviewDate]</p>";
+        $dv .= "<p class='reviewName'>Vehicle: $review[Make] $review[Model]<br> Date: $review[reviewDate]</p>";
         $dv .= "<p class='reviewText'>Review: <br>$review[reviewText]</p>";
         $dv .= "<p><a href='../reviews/?action=goToReview&reviewId=$review[reviewId]'>edit/delete</a></p>";
         $dv .= "<hr>";
@@ -132,8 +132,8 @@ function buildVehicleReview($getReviews){
 function buildUserReviews($getReviews){
     $dv = "";
     foreach($getReviews as $review) {
-    // echo json_encode($review['fname']);
-        $dv .= "<p class='vehicleName'>By: $review[fname] $review[lname]<br> Date: $review[reviewDate]</p>";
+        $user = substr($review['fname'], 0, 1) . $review['lname'];
+        $dv .= "<p class='vehicleName'>By: $user<br> Date: $review[reviewDate]</p>";
         $dv .= "<p class='reviewText'>Review: <br>$review[reviewText]</p>";
         $dv .= "<hr>";
     }
