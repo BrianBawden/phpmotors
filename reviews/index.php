@@ -43,7 +43,6 @@ switch ($action){
       $clientId = $_SESSION['clientData']['clientId'];
 
       insertReview($reviewText, $invId, $clientId);
-      echo "test";
       header("location: ../vehicles/?action=vehDetail&invId=$invId");
     }else {
       $message = '<p id="errorMsg">Login before leaving a review.</p>';
@@ -61,11 +60,14 @@ switch ($action){
   break;
 
   case 'editReview':
-    $reviewId = filter_input(INPUT_GET, 'reviewId', FILTER_SANITIZE_NUMBER_INT);
-    $reviewText = filter_input(INPUT_GET, 'reviewText', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-    $editedRv = updateReview($reviewId, $reviewText);
 
-    include '../view/userReview.php';
+    $reviewId = trim(filter_input(INPUT_POST, 'reviewId', FILTER_SANITIZE_NUMBER_INT));
+    $reviewText = trim(filter_input(INPUT_POST, 'reviewText', FILTER_SANITIZE_FULL_SPECIAL_CHARS));
+
+    updateReview($reviewId, $reviewText);
+
+    // include '../view/userReview.php';
+    header('location: ../reviews/?action=viewReview');
 
   break;
 

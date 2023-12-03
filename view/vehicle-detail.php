@@ -32,10 +32,10 @@
         </div>
         <div id="reviews">
             <hr>
-            <h2>Reviews:</h2>
+            <h2 class="vehRev">Reviews:</h2>
             <p>add a <a href="../reviews/index.php?action=newReview">review</a></p>
             <hr>
-            <div id="newReview hide">
+            <div class="newReview hide">
                 <?php
                     if(isset($buildAddReview)){
                         echo $buildAddReview;
