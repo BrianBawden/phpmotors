@@ -154,6 +154,12 @@ hr{
     border: solid .1rem #8d8d8d;
 }
 
+.caution{
+    color: #A80000;
+    font-size: small;
+    margin-top: -1rem;
+}
+
 /* CSS for vehicle display by class */
 #inv-display{
     margin: 0;

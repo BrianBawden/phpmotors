@@ -20,9 +20,9 @@ function insertReview($reviewText, $invId, $clientId){
   $stmt->bindValue(':invId',      $invId,      PDO::PARAM_INT);
   $stmt->bindValue(':clientId',   $clientId,   PDO::PARAM_INT);
   $stmt->execute();
-  $newReview = $stmt->fetchAll(PDO::FETCH_ASSOC);
+  $rowsChanged = $stmt->rowCount();
   $stmt->closeCursor();
-  return $newReview;
+  return $rowsChanged;
 
 }
 

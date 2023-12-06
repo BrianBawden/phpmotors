@@ -35,15 +35,18 @@ if(isset($_SESSION['clientData'])){
 
 switch ($action){
 
+
   case 'newReview':
     if($_SESSION['loggedin']){
-      // $invId = filter_input(INPUT_GET, 'invId', FILTER_SANITIZE_NUMBER_INT);
-      $invId = trim(filter_input(INPUT_POST, 'invId', FILTER_SANITIZE_NUMBER_INT));
+      // $invId = trim(filter_input(INPUT_GET, 'invId', FILTER_SANITIZE_NUMBER_INT));
+      $invIdPost = trim(filter_input(INPUT_POST, 'invId', FILTER_SANITIZE_NUMBER_INT));
       $reviewText = trim(filter_input(INPUT_POST, 'reviewText', FILTER_SANITIZE_SPECIAL_CHARS));
       $clientId = $_SESSION['clientData']['clientId'];
 
-      insertReview($reviewText, $invId, $clientId);
-      header("location: ../vehicles/?action=vehDetail&invId=$invId");
+
+// get ID: post Id: 9 reviewText: bla bla bla 123 client Id: 38
+      $count = insertReview($reviewText, $invIdPost, $clientId);
+      header("location: ../vehicles/?action=vehDetail&invId=$invIdPost");
     }else {
       $message = '<p id="errorMsg">Login before leaving a review.</p>';
       include '../view/login.php';
@@ -72,7 +75,7 @@ switch ($action){
   break;
 
   case 'deleteReview':
-
+    
     $reviewId = filter_input(INPUT_GET, 'reviewId', FILTER_SANITIZE_NUMBER_INT);
     $message = "Review Deleted";
     deleteReview($reviewId);

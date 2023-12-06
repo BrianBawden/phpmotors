@@ -33,9 +33,9 @@
         <div id="reviews">
             <hr>
             <h2 class="vehRev">Reviews:</h2>
-            <p>add a <a href="../reviews/index.php?action=newReview">review</a></p>
+            <p>You must be logged in to leave a review.</p>
             <hr>
-            <div class="newReview hide">
+            <div class="newReview">
                 <?php
                     if(isset($buildAddReview)){
                         echo $buildAddReview;

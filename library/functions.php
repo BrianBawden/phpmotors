@@ -105,10 +105,9 @@ function addThumbnails($vehicle, $thumbnails){
 
 function buildAddReview($invId){
 
-    $dv = '<form action="../reviews/index.php" method="post">';
-    $dv .= "<label for='invId' readonly>Reviewed Vehicle</label><br>";
+    $dv = "<form action='../reviews/index.php' method='post'>";
     $dv .= "<input class='hide' type='text' value='$invId' name='invId' readonly>";
-    $dv .= "<div class='hide newReview'>";
+    $dv .= "<div class='newReview'>";
     $dv .= '<textarea name="reviewText" cols="30" rows="10"></textarea><br>';
     $dv .= '<input type="submit">';
     $dv .= '<input type="hidden" name="action" value="newReview">';
@@ -145,7 +144,6 @@ function buildUserReviews($getReviews){
 function editDelReview($review){
     $dv = "<p class='vehicleName'>Vehicle: $review[make] $review[model]<br> Date: $review[reviewDate]</p>";
     $dv .= "<form method='post' action='../reviews/index.php'>";
-    $dv .= "<label for='reviewId'>Reviewed Vehicle</label><br>";
     $dv .= "<input class='hide' type='text' value='$review[reviewId]' name='reviewId' readonly>";
     $dv .= "<label for='reviewText'>Your Review</label><br>";
     $dv .= "<textarea id='reviewText' name='reviewText'>$review[reviewText]</textarea><br>";
@@ -153,6 +151,7 @@ function editDelReview($review){
     $dv .= "<input type='hidden' name='action' value='editReview'>";
     $dv .= "</form>";
     $dv .= "<p><a href='../reviews/?action=deleteReview&reviewId=$review[reviewId]'>Delete Review</a></p>";
+    $dv .= "<p class='caution'>* Caution, this will permanently delete this review, and can not be undone.</p>";
     $dv .= "<hr>";
 
     return $dv;
